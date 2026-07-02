@@ -96,9 +96,9 @@
         display: none;
     }
 
-    
+
     .nav-links a .adown {
-            font-size: 18px;
+        font-size: 18px;
     }
 
     .nav-no {
@@ -252,7 +252,7 @@
             font-size: 20px;
         }
 
-        
+
         .nav-links a .adown {
             display: none;
         }
@@ -334,7 +334,7 @@
         max-width: 600px;
     }
 
-    .hero-text button {
+    .page-btn {
         display: flex;
         align-items: center;
         padding-left: 30px;
@@ -347,7 +347,7 @@
         width: clamp(200px, 24vw, 250px);
     }
 
-    .hero-text button span {
+    .page-btn span {
         background: #EF644C;
         padding: 10px 10px;
         overflow: hidden;
@@ -378,6 +378,236 @@
     .hero-side-btn button span {
         font-size: clamp(20px, 2.3vw, 25px);
     }
+
+    /*footer*/
+    .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 10px;
+        width: calc(100% - 20px);
+        font-family: "Noto Sans", sans-serif;
+        background: #1F1F1F;
+        position: relative;
+        border-radius: 20px;
+        gap: 50px;
+    }
+
+    .footer::before {
+        content: "";
+        height: 200px;
+        position: absolute;
+        background: white;
+        width: 100%;
+        overflow: hidden;
+
+    }
+
+    .footer::after {
+        content: "";
+        height: 240px;
+        position: absolute;
+        background: #1F1F1F;
+        width: 100%;
+        top: 180px;
+        border-radius: 20px;
+        overflow: hidden;
+
+    }
+
+    .footer-topbox-container {
+        display: flex;
+        width: calc(100% - 20px);
+        justify-content: center;
+        gap: 20px;
+        z-index: 1;
+        position: relative;
+
+    }
+
+    .footer-topbox {
+        min-height: clamp(200px, 33vw, 400px);
+        width: 100%;
+        max-width: 600px;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 50px;
+    }
+
+    .footer-topbox h2 {
+        font-size: 22px;
+        margin-bottom: 10px;
+        color: white;
+        max-width: 250px;
+    }
+
+    .footer-topbox p {
+        font-size: 14px;
+        margin-bottom: 2px;
+        color: white;
+        max-width: 300px;
+    }
+
+    .footer-topbox a {
+        display: flex;
+        margin-top: 10px;
+        align-items: end;
+        text-decoration: none;
+        font-size: 13px;
+        gap: 5px;
+        color: white;
+        position: relative;
+    }
+
+    .footer-topbox a::before {
+        content: "";
+        position: absolute;
+        background: white;
+        height: 1px;
+        width: 70px;
+        left: 0;
+        bottom: -4px;
+
+    }
+
+    .footer-topbox a span {
+        font-size: 11px;
+    }
+
+    .fbox1 {
+        background: url("./src/fbox1.webp");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .fbox2 {
+        background: url("./src/fbox2.webp");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+
+
+    /*footer contect*/
+
+    .footer-contect {
+        width: 100%;
+        z-index: 1;
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-end;
+    }
+
+    .footer-contect div {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+    }
+
+    .footer-contect h1 {
+        font-size: clamp(25px, 4.5vw, 60px);
+        color: white;
+    }
+
+    .footer-contect h2 {
+        font-size: clamp(20px, 4vw, 45px);
+        color: white;
+    }
+
+    .footer-contect button {
+        width: 200px;
+        margin-bottom: 15px;
+        z-index: -1;
+    }
+
+    .footer-contect span {
+        color: var(--pcolor);
+    }
+
+    @media (max-width:645px) {
+        .footer-topbox-container {
+            flex-direction: column;
+            width: calc(100% - 20px);
+        }
+
+        .footer-contect {
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-contect div {
+            align-items: center;
+        }
+
+        .footer-contect h1 {
+            margin-bottom: 10px;
+        }
+    }
+
+    /*footer main*/
+
+    .footer-main-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footer-body {
+        display: flex;
+        justify-content: space-around;
+        padding: 30px;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+
+    .footer1 p {
+        font-size: 15px;
+        max-width: 300px;
+        color: white;
+        margin-bottom: 10px;
+    }
+
+    .footer-form {
+        margin-bottom: 10px;
+    }
+
+    .footer-sotial-links {
+        display: flex;
+        gap: 10px;
+    }
+
+    .footer-sotial-links a {
+        font-size: 26px;
+    }
+   
+
+
+    .footer2 h2 {
+        font-size: 25px;
+        color: white;
+        margin-bottom: 10px;
+
+    }
+    .footer2 div{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+     .footer2 div a{
+        font-size: 13px;
+        text-decoration: none;
+        color: white;
+     }
 </style>
 
 <body>
@@ -468,7 +698,7 @@
             <p>We deliver seamless logistics and supply chain solutions with speed, precision, and complete
                 reliability.
             </p>
-            <button>Explore More <span class="material-symbols-outlined">arrow_outward</span> </button>
+            <button class="page-btn">Explore More <span class="material-symbols-outlined">arrow_outward</span> </button>
         </div>
         <div class="hero-side-btn">
             <button><span class="material-symbols-outlined">
@@ -480,6 +710,100 @@
         </div>
     </section>
 
+    <footer class="footer">
+
+        <div class="footer-topbox-container">
+            <div class="footer-topbox fbox1">
+                <h2>Special service for our Customers</h2>
+                <p>Pacific hake false trevelly queen Parrotfish black prickleback moss</p>
+                <a href="">Discover<span class="material-symbols-outlined">arrow_outward</span></a>
+            </div>
+
+            <div class="footer-topbox fbox2">
+                <h2>Logistic for different ways in USA</h2>
+                <p>Pacific hake false trevelly queen Parrotfish black prickleback moss</p>
+                <a href="">Discover<span class="material-symbols-outlined">arrow_outward</span></a>
+            </div>
+        </div>
+
+        <div class="footer-contect">
+            <div>
+                <h1>Have Any Questions?</h1>
+                <h2>Call us <span> +91 12345 67890</span></h2>
+            </div>
+
+            <button class="page-btn">Explore More <span class="material-symbols-outlined">arrow_outward</span> </button>
+
+        </div>
+
+        <div class="footer-main-content">
+
+            <div class="footer-body">
+                <div class="footer1">
+                    <img src="./src/logo.webp" alt="Company Logo" class="company-logo">
+                    <p>Fast, secure, and dependable logistics services tailored
+                        to your business needs.Delivering excellence from pickup
+                        to final destination.</p>
+
+                    <div class="footer-form">
+                        <input type="text">
+                        <button>Subscribe</button>
+                    </div>
+
+                    <div class="footer-sotial-links">
+                        <a href=""><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href=""> <i class="fa-brands fa-facebook"></i></a>
+                        <a href=""><i class="fa-brands fa-instagram"></i></a>
+                        <a href=""> <i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
+
+
+                </div>
+
+                <div class="footer2">
+                    <h2>Contacts</h2>
+                    <div>
+                        <a href="">USA, New York</a>
+                        <a href="">+91 12345 09876</a>
+                        <a href="">+91 09876 12345</a>
+                        <a href="">support@gmail.com</a>
+                    </div>
+                </div>
+
+                <div class="footer2">
+                    <h2>Company</h2>
+                    <div>
+                        <a href="">Home</a>
+                        <a href="">About Us</a>
+                        <a href="">Pages</a>
+                        <a href="">Services</a>
+                        <a href="">Contact</a>
+                    </div>
+                </div>
+
+                <div class="footer2">
+                    <h2>Services</h2>
+                    <div>
+                              <a href="">Air Freight</a>
+                    <a href="">Sea Freight</a>
+                    <a href="">Land Transport</a>
+                    <a href="">Groupage</a>
+                    <a href="">Consultancy</a>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>@Logistics 2026.All Rights Reserved.</p>
+                <a href="">Terms of use Privacy Policy</a>
+            </div>
+
+
+        </div>
+
+    </footer>
 
     <script>
 
