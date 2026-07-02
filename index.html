@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly - Logistics</title>
+    <link data-rocket-preload="" as="style"
+        href="https://fonts.googleapis.com/css?family=Manrope%3Aitalic%2C300%2C400%2C500%2C600%2C700%26amp%3Bsubset%3Dlatin%7CSpace%20Grotesk%3A500%26amp%3Bsubset%3Dlatin%7CRoboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%20Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CManrope%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CSpace%20Grotesk%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;display=swap"
+        rel="preload">
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0,-50..200" />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Chelsea+Market&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Figtree:ital,wght@0,300..900;1,300..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Oldenburg&family=Outfit:wght@100..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto+Slab:wght@100..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+    }
+
+    .nav-header-icons,
+    .nav-main-container {
+        display: none;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 10px;
+        background: red;
+        padding: 10px;
+        border-radius: 20px;
+        font-family: "Noto Sans", sans-serif;
+    }
+
+    .gird-menu-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .gridmenu {
+        font-size: 25px;
+        color: white;
+    }
+
+    .company-logo {
+        width: 190px;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 30px;
+    }
+
+    .nav-links a {
+        font-size: 18px;
+        text-decoration: none;
+        color: white;
+    }
+
+    .nav-links a span {
+        display: none;
+    }
+
+    .nav-no {
+        font-size: 18px;
+        text-decoration: none;
+        color: white;
+    }
+
+    .search-icons {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .search-icons a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+    }
+
+    .search-icons a span {
+        font-size: 25px;
+        color: white;
+    }
+
+    .ship-btn {
+        padding: 20px 30px;
+        border-radius: 30px;
+        border: none;
+        font-size: 15px;
+    }
+
+    .menu-btn {
+        display: none;
+        font-size: 25px;
+        font-weight: bold;
+        color: white;
+    }
+
+    @media (max-width:1180px) {
+
+
+         .company-logo{
+            width: 160px;
+         }
+        .nav-container {
+            position: fixed;
+            display: block;
+            background: black;
+            height: 100vh;
+            min-width: 320px;
+            right: 0px;
+            top: 0;
+            padding: 20px 40px;
+            transform: translateX(100%);
+            transition: .4s;
+            overflow-x: hidden;
+        }
+
+ 
+
+    .nav-container.show {
+        transform: translateX(0);
+    }
+
+    .nav-header-icons {
+        color: white;
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
+        margin-bottom: 40px;
+    }
+
+
+
+    .nav-detais {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+
+    .nav-detais h2 {
+        color: white;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .nav-detais a {
+        margin-bottom: 10px;
+        text-decoration: none;
+        color: white;
+        font-size: 15px;
+        letter-spacing: 2px;
+    }
+
+    .nav-sotial-links {
+        display: flex;
+        gap: 15px;
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    .nav-sotial-links a {
+        color: white;
+    }
+
+    .nav-btn-conatainer button {
+        display: flex;
+        align-items: center;
+        padding-left: 10px;
+        width: 100%;
+        border-radius: 10px;
+        justify-content: space-between;
+        background: transparent;
+        color: white;
+        border: 1px solid #EF644C;
+        overflow: hidden;
+    }
+
+
+    .nav-btn-conatainer button span {
+        background: #EF644C;
+        padding: 10px 10px;
+        overflow: hidden;
+    }
+
+
+    .nav-links {
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 40px;
+    }
+
+    .nav-links a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-links a span {
+        display: block;
+        font-size: 20px;
+    }
+
+    .nav-links a {
+        font-size: 15px;
+    }
+
+    .nav-no {
+        display: none;
+    }
+
+    .search-icons {
+        display: none;
+    }
+
+    .gird-menu-container {
+        display: none;
+    }
+
+    .ship-btn {
+        display: none;
+    }
+
+
+    .nav-main-container {
+        display: block;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .close-btn {
+        z-index: 1999;
+    }
+   }
+
+   
+</style>
+
+<body>
+
+    <section class="header">
+        <div class="gird-menu-container">
+            <span class="material-symbols-outlined gridmenu">grid_view</span>
+        </div>
+        <img src="./src/logo.webp" alt="Company Logo" class="company-logo">
+
+        <div class="nav-container">
+            <div class="nav-header-icons">
+                <span class="material-symbols-outlined">garden_cart</span>
+                <span class="material-symbols-outlined">search</span>
+                <span class="material-symbols-outlined">person_2</span>
+                <span class="material-symbols-outlined close-btn">close</span>
+            </div>
+
+            <div class="nav-links">
+                <a href="" class="active">Home<span class="material-symbols-outlined">keyboard_arrow_right</span></a>
+                <a href="">About Us<span class="material-symbols-outlined">keyboard_arrow_right</span></a>
+                <a href="">Pages<span class="material-symbols-outlined">keyboard_arrow_right</span></a>
+                <a href="">Services<span class="material-symbols-outlined">keyboard_arrow_right</span></a>
+                <a href="">Contact<span class="material-symbols-outlined">keyboard_arrow_right</span></a>
+            </div>
+
+            <div class="nav-main-container">
+                <div class="nav-detais">
+                    <h2>Phone</h2>
+                    <a href="">+09877 54321</a>
+                    <a href="">+12345 67890</a>
+                </div>
+
+                <div class="nav-detais">
+                    <h2>Email</h2>
+                    <a href="">admin@gmail.com</a>
+                </div>
+
+                <div class="nav-sotial-links">
+                    <a href=""><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href=""> <i class="fa-brands fa-facebook"></i></a>
+                    <a href=""><i class="fa-brands fa-instagram"></i></a>
+                    <a href=""> <i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+
+                <div class="nav-btn-conatainer">
+                    <button>Get in Touch <span class="material-symbols-outlined">arrow_outward</span></button>
+                </div>
+
+            </div>
+        </div>
+
+        <a href="" class="nav-no">+91 09876 12345</a>
+
+        <div class="search-icons">
+            <a href=""><span class="material-symbols-outlined">search</span></a>
+            <a href=""><span class="material-symbols-outlined">person_2</span></a>
+        </div>
+
+        <button class="ship-btn">Track Shipment</button>
+
+        <span class="material-symbols-outlined menu-btn">Menu</span>
+
+
+    </section>
+
+    <script>
+
+
+        const menuBtn = document.querySelector(".menu-btn");
+        const navContainer = document.querySelector(".nav-container");
+        const closeBtn = document.querySelector(".close-btn");
+
+        menuBtn.addEventListener("click", () => {
+            navContainer.classList.toggle("show");
+        });
+
+        closeBtn.addEventListener("click", () => {
+            navContainer.classList.remove("show");
+        });
+
+        document.querySelectorAll('*').forEach(el => {
+    if (el.scrollWidth > document.documentElement.clientWidth) {
+        console.log(el);
+    }
+});
+
+    </script>
+</body>
+
+
+</html>
