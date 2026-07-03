@@ -529,6 +529,124 @@
         color: var(--pcolor);
     }
 
+    /*footer main*/
+
+    .footer-main-content {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .footer-body {
+        display: flex;
+        justify-content: space-between;
+        gap: 50px;
+        flex-wrap: wrap;
+        border-top: 2px solid rgba(128, 128, 128, 0.548);
+         padding-top: 50px;
+    }
+
+    .footer-body>div {
+        flex: 1 1 220px;
+        min-width: 220px;
+    }
+
+
+
+    .footer1 p {
+        font-size: 15px;
+        max-width: 300px;
+        color: white;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+
+    .footer-form {
+        margin-bottom: 10px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        overflow: hidden;
+        border-radius: 10px;
+        margin-bottom: 20px;
+
+    }
+
+    .footer1 input {
+        padding: 15px 20px;
+        border: 1px solid var(--pcolor);
+        background: transparent;
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .subscribe {
+        padding: 15px 20px;
+        border: none;
+        background: var(--pcolor);
+        color: white;
+        font-weight: bold;
+        position: absolute;
+
+    }
+
+    .footer-sotial-links {
+        display: flex;
+        gap: 10px;
+    }
+
+    .footer-sotial-links a {
+        border: 1px solid var(--pcolor);
+        border-radius: 50%;
+        padding: 5px;
+        font-size: 25px;
+        color: white;
+    }
+
+    .footer2 h2 {
+        font-size: 22px;
+        color: white;
+        margin-bottom: 10px;
+
+    }
+
+    .footer2 div {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .footer2 div a {
+        font-size: 13px;
+        text-decoration: none;
+        color: white;
+    }
+
+    .footer-bottom {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding-block: 50px;
+        gap: 10px;
+    }
+
+    .footer-bottom p {
+        font-size: 14px;
+        color: white;
+    }
+
+    .footer-bottom a {
+        font-size: 14px;
+        color: white;
+        font-size: 13px;
+        text-decoration: none;
+        word-spacing: 2px;
+    }
+
+
     @media (max-width:645px) {
         .footer-topbox-container {
             flex-direction: column;
@@ -549,65 +667,21 @@
         .footer-contect h1 {
             margin-bottom: 10px;
         }
+
+
+        .footer-bottom p {
+            font-size: 12px;
+        }
+
+        .footer-bottom a {
+            font-size: 12px;
+
+        }
+
+         .footer-bottom {
+            justify-content: center;
+         }
     }
-
-    /*footer main*/
-
-    .footer-main-content {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .footer-body {
-        display: flex;
-        justify-content: space-around;
-        padding: 30px;
-        gap: 10px;
-        flex-wrap: wrap;
-    }
-
-
-    .footer1 p {
-        font-size: 15px;
-        max-width: 300px;
-        color: white;
-        margin-bottom: 10px;
-    }
-
-    .footer-form {
-        margin-bottom: 10px;
-    }
-
-    .footer-sotial-links {
-        display: flex;
-        gap: 10px;
-    }
-
-    .footer-sotial-links a {
-        font-size: 26px;
-    }
-   
-
-
-    .footer2 h2 {
-        font-size: 25px;
-        color: white;
-        margin-bottom: 10px;
-
-    }
-    .footer2 div{
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-     .footer2 div a{
-        font-size: 13px;
-        text-decoration: none;
-        color: white;
-     }
 </style>
 
 <body>
@@ -746,8 +820,8 @@
                         to final destination.</p>
 
                     <div class="footer-form">
-                        <input type="text">
-                        <button>Subscribe</button>
+                        <input type="text" placeholder="Pleae Subscirbe">
+                        <button class="subscribe">Subscribe</button>
                     </div>
 
                     <div class="footer-sotial-links">
@@ -784,11 +858,11 @@
                 <div class="footer2">
                     <h2>Services</h2>
                     <div>
-                              <a href="">Air Freight</a>
-                    <a href="">Sea Freight</a>
-                    <a href="">Land Transport</a>
-                    <a href="">Groupage</a>
-                    <a href="">Consultancy</a>
+                        <a href="">Air Freight</a>
+                        <a href="">Sea Freight</a>
+                        <a href="">Land Transport</a>
+                        <a href="">Groupage</a>
+                        <a href="">Consultancy</a>
                     </div>
                 </div>
 
