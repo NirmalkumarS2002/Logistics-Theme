@@ -57,6 +57,13 @@
         border-radius: 20px;
         font-family: "Noto Sans", sans-serif;
         z-index: 9999;
+        transition: 0.3s;
+    }
+
+    .header.active {
+        background: 
+        #1f1f1fd3;
+         
     }
 
     .gird-menu-container {
@@ -78,7 +85,7 @@
         cursor: pointer;
     }
 
-    .header-grid-container .page-btn{
+    .header-grid-container .page-btn {
         width: 70%;
     }
 
@@ -217,13 +224,15 @@
         .nav-container {
             position: fixed;
             display: block;
+            margin: 10px;
             background: #1F1F1F;
-            height: 100vh;
-            min-width: 320px;
+            height: calc(100vh - 20px);
+            min-width: 300px;
             right: 0px;
             top: 0;
             padding: 40px 40px;
-            transform: translateX(100%);
+            transform: translateX(120%);
+            border-radius: 20px;
             transition: .4s;
             overflow-x: hidden;
             z-index: 1;
@@ -803,7 +812,8 @@
                     </div>
                 </div>
 
-                <button class="page-btn">Get in Touch <span class="material-symbols-outlined">arrow_outward</span></button>
+                <button class="page-btn">Get in Touch <span
+                        class="material-symbols-outlined">arrow_outward</span></button>
 
 
 
@@ -1000,6 +1010,19 @@
     <script>
 
 
+            //header nav bar bg
+        const header = document.querySelector(".header");
+
+        window.addEventListener("scroll", () => {
+            if (scrollY > 50) {
+                header.classList.add("active");
+            } else {
+                header.classList.remove("active");
+            }
+        });
+
+        //header toggle
+
         const menuBtn = document.querySelector(".menu-btn");
         const navContainer = document.querySelector(".nav-container");
         const closeBtn = document.querySelector(".close-btn");
@@ -1012,11 +1035,11 @@
             navContainer.classList.remove("show");
         });
 
+        // //header grid toggle
+
         const girdcontainer = document.querySelector(".header-grid-container")
         const girdclosebtn = document.querySelector(".grid-close-btn")
         const gridmenu = document.querySelector(".gridmenu")
-        const section=document.querySelector("section")
-
 
         gridmenu.addEventListener("click", () => {
             girdcontainer.classList.toggle("vis");
@@ -1026,10 +1049,10 @@
             girdcontainer.classList.remove("vis");
         });
 
+    
 
-        console.log(girdcontainer);
-        console.log(girdclosebtn);
-        console.log(gridmenu);
+
+
     </script>
 </body>
 
