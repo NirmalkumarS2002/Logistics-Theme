@@ -56,17 +56,83 @@
         padding: 10px 20px;
         border-radius: 20px;
         font-family: "Noto Sans", sans-serif;
+        z-index: 9999;
     }
 
     .gird-menu-container {
         display: flex;
         gap: 30px;
         align-items: center;
+        z-index: 1;
+    }
+
+    .grid-logo {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .grid-close-btn {
+        color: white;
+        font-size: 25px;
+        cursor: pointer;
+    }
+
+    .header-grid-container .page-btn{
+        width: 70%;
+    }
+
+    .header-grid-container {
+        display: block;
+        position: absolute;
+        top: 10px;
+        background: #1F1F1F;
+        height: calc(100vh - 20px);
+        width: 300px;
+        left: 0;
+        top: 0;
+        border-radius: 20px;
+        padding: 30px 30px;
+        transform: translateX(-130%);
+        transition: .4s;
+        overflow-x: hidden;
+    }
+
+    .header-grid-container.vis {
+        transform: translateX(0);
+    }
+
+    .header-grid-container div {
+        margin-bottom: 30px;
+    }
+
+    .header-grid-container div h2 {
+        font-size: 18px;
+        color: white;
+        margin-bottom: 15px;
+    }
+
+    .header-grid-container div p {
+        margin-bottom: 5px;
+        font-size: 13px;
+        color: white;
+    }
+
+    .grid-sotial-links {
+        display: flex;
+        gap: 5px;
+    }
+
+    .grid-sotial-links a {
+        font-size: 18px;
+        font-size: 24px;
+        color: var(--pcolor);
     }
 
     .gridmenu {
         font-size: 25px;
         color: white;
+        cursor: pointer;
     }
 
     .company-logo {
@@ -151,7 +217,7 @@
         .nav-container {
             position: fixed;
             display: block;
-            background: black;
+            background: #1F1F1F;
             height: 100vh;
             min-width: 320px;
             right: 0px;
@@ -160,7 +226,7 @@
             transform: translateX(100%);
             transition: .4s;
             overflow-x: hidden;
-            z-index: 200000;
+            z-index: 1;
         }
 
 
@@ -284,10 +350,12 @@
         }
 
         .menu-btn {
+            cursor: pointer;
             display: block;
         }
 
         .close-btn {
+            cursor: pointer;
             z-index: 1999;
         }
     }
@@ -544,7 +612,7 @@
         gap: 50px;
         flex-wrap: wrap;
         border-top: 2px solid rgba(128, 128, 128, 0.548);
-         padding-top: 50px;
+        padding-top: 50px;
     }
 
     .footer-body>div {
@@ -572,6 +640,7 @@
         border-radius: 10px;
         margin-bottom: 20px;
 
+
     }
 
     .footer1 input {
@@ -580,6 +649,14 @@
         background: transparent;
         width: 100%;
         border-radius: 10px;
+        color: white;
+
+
+    }
+
+    .footer1 input:focus {
+        outline: none;
+
     }
 
     .subscribe {
@@ -678,9 +755,9 @@
 
         }
 
-         .footer-bottom {
+        .footer-bottom {
             justify-content: center;
-         }
+        }
     }
 </style>
 
@@ -690,6 +767,47 @@
         <div class="gird-menu-container">
             <span class="material-symbols-outlined gridmenu">grid_view</span>
             <img src="./src/logo.webp" alt="Company Logo" class="company-logo">
+
+            <div class="header-grid-container">
+
+                <div class="grid-logo">
+                    <img src="./src/logo.webp" alt="Company Logo" class="company-logo">
+                    <span class="material-symbols-outlined grid-close-btn">close</span>
+                </div>
+                <div>
+                    <h2>Our Location</h2>
+                    <p>USA, New York - 1060</p>
+                    <p>Str.First Avenue 1</p>
+                </div>
+
+                <div>
+                    <h2>Our Location</h2>
+                    <p>USA, New York - 1060</p>
+                    <p>Str.First Avenue 1</p>
+                </div>
+
+                <div>
+                    <h2>Email</h2>
+                    <p>admin@gmail.com</p>
+                </div>
+
+                <div>
+
+                    <h2>Sotial Network</h2>
+
+                    <div class="grid-sotial-links">
+                        <a href=""><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href=""> <i class="fa-brands fa-facebook"></i></a>
+                        <a href=""><i class="fa-brands fa-instagram"></i></a>
+                        <a href=""> <i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
+                </div>
+
+                <button class="page-btn">Get in Touch <span class="material-symbols-outlined">arrow_outward</span></button>
+
+
+
+            </div>
         </div>
 
 
@@ -894,6 +1012,24 @@
             navContainer.classList.remove("show");
         });
 
+        const girdcontainer = document.querySelector(".header-grid-container")
+        const girdclosebtn = document.querySelector(".grid-close-btn")
+        const gridmenu = document.querySelector(".gridmenu")
+        const section=document.querySelector("section")
+
+
+        gridmenu.addEventListener("click", () => {
+            girdcontainer.classList.toggle("vis");
+        });
+
+        girdclosebtn.addEventListener("click", () => {
+            girdcontainer.classList.remove("vis");
+        });
+
+
+        console.log(girdcontainer);
+        console.log(girdclosebtn);
+        console.log(gridmenu);
     </script>
 </body>
 
