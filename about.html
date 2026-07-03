@@ -38,11 +38,7 @@
         --pcolor: #EF644C
     }
 
-    .nav-header-icons,
-    .nav-main-container {
-        display: none;
-    }
-
+    /*---header---*/
     .header {
         display: flex;
         position: fixed;
@@ -56,6 +52,12 @@
         z-index: 9999;
         transition: 0.4s;
     }
+
+       .nav-header-icons,
+    .nav-main-container {
+        display: none;
+    }
+
 
     .header.active {
         background:
@@ -482,47 +484,6 @@
         }
     }
 
-    /**/
-    .hero-section {
-        height: calc(100vh - 20px);
-        margin: 10px;
-        border-radius: 20px;
-        background: url("./src/hero-bg1.webp");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        font-family: "Outfit", sans-serif;
-        font-weight: 200;
-    }
-
-    .hero-text {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-        padding: 10px;
-    }
-
-    .hero-text h1 {
-        font-size: clamp(29px, 5vw, 70px);
-        max-width: 1100px;
-        text-align: center;
-        text-transform: uppercase;
-        color: white;
-        word-spacing: 5px;
-    }
-
-    .hero-text p {
-        font-size: clamp(16px, 1.7vw, 18px);
-        text-align: center;
-        line-height: 1.4;
-        color: white;
-        max-width: 600px;
-    }
 
     .page-btn {
         position: relative;
@@ -565,34 +526,9 @@
         transition: .4s ease;
     }
 
-    .hero-side-btn {
-        position: absolute;
-        right: 20px;
-        bottom: 20px;
-        display: flex;
-        flex-direction: column;
-        background: white;
-        border-radius: 15px;
-        overflow: hidden;
-        z-index: 1;
 
-    }
+    /*-----footer-----*/
 
-    .hero-side-btn button {
-        padding: clamp(15px, 2vw, 25px) clamp(15px, 2vw, 25px);
-        border: none;
-        transition: 0.4s ease;
-    }
-
-    .hero-side-btn button:hover {
-        background: #EF644C;
-    }
-
-    .hero-side-btn button span {
-        font-size: clamp(20px, 2.3vw, 25px);
-    }
-
-    /*footer*/
     .footer {
         display: flex;
         flex-direction: column;
@@ -990,11 +926,11 @@
             </div>
 
             <div class="nav-links">
-                <a href="index.html" class="active">Home
+                <a href="index.html" >Home
                     <span class="material-symbols-outlined aside">keyboard_arrow_right</span>
                     <span class="material-symbols-outlined adown">keyboard_arrow_down</span>
                 </a>
-                <a href="about.html">About Us<span
+                <a href="about.html" class="active">About Us<span
                         class="material-symbols-outlined aside">keyboard_arrow_right</span><span
                         class="material-symbols-outlined adown">
                         keyboard_arrow_down
@@ -1053,27 +989,6 @@
         <span class="material-symbols-outlined menu-btn">Menu</span>
 
 
-    </section>
-
-    <section class="hero-section">
-
-
-        <div class="hero-text">
-            <h1>Proper Logistic is success for your company</h1>
-            <p>We deliver seamless logistics and supply chain solutions with speed, precision, and complete
-                reliability.
-            </p>
-            <button class="page-btn errorpage">Explore More <span class="material-symbols-outlined">arrow_outward</span>
-            </button>
-        </div>
-        <div class="hero-side-btn">
-            <button class="errorpage"><span class="material-symbols-outlined">
-                    arrow_left_alt
-                </span></button>
-            <button><span class="material-symbols-outlined">
-                    arrow_right_alt
-                </span></button>
-        </div>
     </section>
 
     <footer class="footer">
@@ -1171,6 +1086,7 @@
         </div>
 
     </footer>
+    
     <script src="script.js"></script>
 </body>
 
