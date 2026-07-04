@@ -45,7 +45,8 @@
         align-items: center;
         min-height: 100vh;
         padding: 10px;
-        background: gray;
+    background: linear-gradient(135deg,rgb(211, 211, 211),rgb(180, 180, 180));
+        position: relative;
     }
 
     .loginpage {
@@ -56,6 +57,7 @@
         width: 100%;
         max-width: 1000px;
         border-radius: 20px;
+        box-shadow: 1px 1px  30px rgba(255, 255, 255, 0.397);
         overflow: hidden;
     }
 
@@ -64,8 +66,12 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background: var(--pcolor);
+        background: linear-gradient(125deg,#ff4e2f67,#ff503196),url("./src/login2.webp");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
         position: relative;
+        padding: 15px;
     }
 
     .right img {
@@ -76,7 +82,7 @@
     }
 
     .right h1 {
-        font-size: 45px;
+        font-size: clamp(30px, 3.5vw, 45px);
         text-transform: capitalize;
         margin-bottom: 10px;
         color: white;
@@ -99,10 +105,38 @@
         border: none;
         padding-left: 10px;
         align-items: center;
-        border: 1px solid black;
+        border: 1px solid white;
         border-radius: 10px;
         overflow: hidden;
+        position: relative;
+        z-index: 1;
+        transform: .5s ease;
+
     }
+
+    .pagebtn::before {
+        content: "";
+        position: absolute;
+        background: var(--pcolor);
+        height: 100%;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
+        width: 0;
+        transition: .4s ease;
+    }
+
+    .pagebtn:hover::before {
+        width: 100%;
+    }
+
+    .pagebtn:hover {
+        color: white;
+    }
+
+
+
 
     .pagebtn span {
         background: var(--pcolor);
@@ -110,18 +144,24 @@
         color: white;
         font-size: 24px;
         border-radius: 10px;
+
     }
+
+
 
     .left {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        padding: 20px;
     }
 
+
     .left h1 {
-        font-size: 35px;
+        font-size: clamp(25px, 3vw, 35px);
         margin-bottom: 10px;
+        color: var(--pcolor);
     }
 
     .left>p {
@@ -132,15 +172,25 @@
         margin-bottom: 15px;
     }
 
+    .form {
+        width: 100%;
+        max-width: 350px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     .labelbox {
         margin-bottom: 10px;
+        width: 100%;
         display: flex;
         flex-direction: column;
         gap: 5px;
     }
 
     .labelbox label {
-        font-size: 14px;
+        font-size: 12px;
+        font-weight: bold;
         color: var(--pcolor);
     }
 
@@ -151,8 +201,9 @@
     .inputbox input,
     select {
         width: 100%;
-        padding: 10px 40px;
+        padding: 13px 40px;
         border-radius: 7px;
+        font-size: 12px;
         border: 1px solid var(--pcolor);
     }
 
@@ -163,6 +214,7 @@
         font-size: 20px;
         top: 50%;
         transform: translateY(-50%);
+        color: var(--pcolor);
     }
 
     .inputbox .lock {
@@ -171,6 +223,7 @@
         font-size: 20px;
         top: 50%;
         transform: translateY(-50%);
+           color: var(--pcolor);
     }
 
     .inputbox .passeye {
@@ -179,23 +232,25 @@
         font-size: 20px;
         top: 50%;
         transform: translateY(-50%);
+           color: var(--pcolor);
     }
 
     .left .pagebtn {
         border: 1px solid var(--pcolor);
-        max-width: 100%;
+        max-width: 60%;
+        background: white;
         margin-block: 15px;
     }
 
     .left .pagebtn span {
-        font-size: 20px;
+        font-size: 24px;    
     }
 
     .formfooter {
         text-align: center;
     }
 
-    .formfooter div{
+    .formfooter div {
         display: flex;
         gap: 10px;
         margin-bottom: 5px;
@@ -209,24 +264,46 @@
     .formfooter a {
         font-size: 13px;
         text-decoration: none;
+        color: var(--pcolor);
+        font-weight: 600;
+    }
+
+    @media (max-width:800px) {
+        .loginpage {
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr;
+        }
+
+        .right {
+            position: relative;
+        }
+
+        .right img {
+            left: 50%;
+            transform: translateX(-50%);
+            top: 80px;
+        }
+
     }
 </style>
 
 <body>
+
+
     <section class="loginpage">
         <div class="right">
             <img src="./src/logo.webp" alt="Company Logo">
             <h1>welcome Back</h1>
             <p>To keep connected with us Please
                 Login with your personal info</p>
-            <button class="pagebtn">Sign Up <span class="material-symbols-outlined">
+            <button class="pagebtn signbtn">Sign Up <span class="material-symbols-outlined">
                     login
                 </span></button>
         </div>
 
         <div class="left">
             <h1>Login Account</h1>
-            <p>Secure Access fo;r Store Managers , Staff and Delivery Partners</p>
+            <p>Access Your Logistics Dashboard</p>
 
             <form class="form">
 
