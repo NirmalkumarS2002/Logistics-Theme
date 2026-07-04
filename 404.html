@@ -86,6 +86,7 @@
     .btns {
         display: flex;
         gap: 20px;
+
     }
 
     .btn {
@@ -97,6 +98,8 @@
         border-radius: 10px;
         font-size: 15px;
         color: white;
+        text-wrap: nowrap;
+
     }
 
     .btn span {
@@ -114,6 +117,7 @@
         background: #ff4e2e;
         transform: translateY(-5px);
         box-shadow: 1px 1px 20px #ff4e2e;
+                border: 1px solid var(--pcolor);
     }
 
     .secondary {
@@ -133,6 +137,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+      
     }
 
     .farm-box {
@@ -141,8 +146,8 @@
         background-repeat: no-repeat;
         background-size: cover;
         width: 100%;
-        max-width: 450px;
-        height: 450px;
+        max-width: 400px;
+        height: 400px;
         border-radius: 20px;
         display: flex;
         position: relative;
@@ -186,7 +191,7 @@
         font-size: 15px;
     }
 
-    @media (max-width:900px) {
+    @media (max-width:950px) {
         .container {
             grid-template-columns: 1fr;
             width: 100%;
@@ -204,6 +209,16 @@
         }
 
     }
+
+    @media (max-width:450px) {
+        .btns{
+            flex-direction: column;
+        }
+
+        .btn{
+            justify-content: center;
+        }
+    }   
 </style>
 
 <body>
