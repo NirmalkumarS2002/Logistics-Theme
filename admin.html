@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stackly - Admin Dashboard</title>
+
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0,-50..200" />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+<style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    :root {
+        --pcolor:#EF644C;
+        --hcolor:#ff4e2e;
+        --dark:#1F1F1F;
+        --panel:#F7F5F3;
+    }
+    body {
+        background: var(--panel);
+        font-family: "Noto Sans", sans-serif;
+        display: flex;
+        gap: 10px;
+        padding: 10px;
+        min-height: 100vh;
+    }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; }
+
+    /* ================= SIDEBAR ================= */
+    .sidebar {
+        width: 260px;
+        flex-shrink: 0;
+        background: var(--dark);
+        border-radius: 20px;
+        padding: 25px 18px;
+        display: flex;
+        flex-direction: column;
+        height: calc(100vh - 20px);
+        position: sticky;
+        top: 10px;
+    }
+    .sidebar-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 0 8px 25px;
+        border-bottom: 1px solid #333;
+        margin-bottom: 25px;
+    }
+    .sidebar-logo .material-symbols-outlined {
+        background: var(--pcolor);
+        color: #fff;
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+    }
+    .sidebar-logo h1 {
+        font-family: "Outfit", sans-serif;
+        font-weight: 600;
+        font-size: 19px;
+        color: #fff;
+    }
+    .sidebar-logo span.sub { display:block; font-size: 11px; color: #888; font-weight: 400; }
+
+    .nav-group-label {
+        font-size: 11px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: #666;
+        padding: 0 10px;
+        margin-bottom: 12px;
+    }
+
+    .side-nav { display: flex; flex-direction: column; gap: 6px; }
+    .side-nav button {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        padding: 12px 14px;
+        border: none;
+        background: transparent;
+        color: #bbb;
+        font-family: "Noto Sans", sans-serif;
+        font-size: 14px;
+        border-radius: 10px;
+        cursor: pointer;
+        text-align: left;
+        transition: .3s ease;
+    }
+    .side-nav button .material-symbols-outlined { font-size: 20px; }
+    .side-nav button:hover { background: #2a2a2a; color: #fff; }
+    .side-nav button.active { background: var(--pcolor); color: #fff; }
+
+    .sidebar-footer {
+        margin-top: auto;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px;
+        border-radius: 12px;
+        background: #2a2a2a;
+    }
+    .sidebar-footer img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+    .sidebar-footer h4 { color: #fff; font-size: 13px; }
+    .sidebar-footer span { color: #888; font-size: 11px; }
+
+    /* ================= MAIN AREA ================= */
+    .main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        min-width: 0;
+    }
+
+    .topbar {
+        background: #fff;
+        border-radius: 20px;
+        padding: 18px 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .topbar h2 { font-family:"Outfit", sans-serif; font-weight: 500; font-size: 22px; }
+    .topbar-right { display: flex; align-items: center; gap: 20px; }
+    .search-box {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--panel);
+        border-radius: 10px;
+        padding: 10px 16px;
+    }
+    .search-box input { border: none; background: transparent; outline: none; font-size: 13px; width: 180px; }
+    .search-box .material-symbols-outlined { color: #999; font-size: 18px; }
+    .topbar-right .material-symbols-outlined { color: #555; cursor: pointer; }
+    .topbar-avatar img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; }
+
+    .view { display: none; flex-direction: column; gap: 20px; }
+    .view.active { display: flex; }
+
+    /* reused button style (matches .page-btn) */
+    .d-btn {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 22px;
+        gap: 10px;
+        border: 1px solid var(--pcolor);
+        border-radius: 10px;
+        background: transparent;
+        color: var(--dark);
+        overflow: hidden;
+        cursor: pointer;
+        transition: .8s ease;
+        z-index: 1;
+        font-size: 13px;
+        font-family: "Noto Sans", sans-serif;
+    }
+    .d-btn::before {
+        content: "";
+        position: absolute;
+        top: 0; right: 0;
+        width: 0; height: 100%;
+        background: var(--pcolor);
+        transition: width .4s ease;
+        z-index: -1;
+    }
+    .d-btn:hover::before { width: 100%; }
+    .d-btn span { background: var(--pcolor); padding: 9px 10px; border-radius: 10px; color: #fff; z-index: 2; }
+
+    /* generic panel */
+    .panel { background: #fff; border-radius: 20px; padding: 25px; }
+    .panel h3 { font-family: "Outfit", sans-serif; font-weight: 500; font-size: 17px; margin-bottom: 18px; }
+    .panel-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+
+    /* stat cards */
+    .stat-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+    .stat-card { background: #fff; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 10px; }
+    .stat-card .top { display: flex; justify-content: space-between; align-items: center; }
+    .stat-card .material-symbols-outlined {
+        background: var(--pcolor);
+        color: #fff;
+        width: 42px; height: 42px;
+        border-radius: 12px;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 20px;
+    }
+    .stat-card h2 { font-family:"Outfit", sans-serif; font-weight: 600; font-size: 26px; }
+    .stat-card p { font-size: 12px; color: #888; }
+    .stat-card .delta { font-size: 12px; color: #1fa855; }
+    .stat-card .delta.down { color: var(--pcolor); }
+
+    /* table */
+    table { width: 100%; border-collapse: collapse; }
+    thead th { text-align: left; font-size: 12px; color: #999; padding: 10px 12px; border-bottom: 1px solid #eee; font-weight: 600; }
+    tbody td { padding: 14px 12px; font-size: 13px; border-bottom: 1px solid #f2f2f2; }
+    tbody tr:last-child td { border-bottom: none; }
+    .cell-item { display: flex; align-items: center; gap: 10px; }
+    .cell-item img { width: 34px; height: 34px; border-radius: 8px; object-fit: cover; }
+    .badge { padding: 5px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+    .badge.delivered { background: #e6f7ec; color: #1fa855; }
+    .badge.transit { background: #fff2e0; color: #e08a1f; }
+    .badge.pending { background: #fde9e6; color: var(--pcolor); }
+    .badge.active { background: #e6f7ec; color: #1fa855; }
+    .badge.maintenance { background: #fde9e6; color: var(--pcolor); }
+
+    /* two column layout */
+    .split-2 { display: grid; grid-template-columns: 1.6fr 1fr; gap: 20px; }
+
+    /* fleet grid */
+    .fleet-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .fleet-card { border-radius: 16px; overflow: hidden; border: 1px solid #eee; }
+    .fleet-card img { width: 100%; height: 160px; object-fit: cover; }
+    .fleet-card-body { padding: 16px; }
+    .fleet-card-body h4 { font-family: "Outfit", sans-serif; font-weight: 500; font-size: 14px; margin-bottom: 6px; }
+    .fleet-card-body p { font-size: 12px; color: #888; margin-bottom: 10px; }
+
+    /* warehouse gallery */
+    .wh-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .wh-card { position: relative; border-radius: 16px; overflow: hidden; height: 180px; }
+    .wh-card img { width: 100%; height: 100%; object-fit: cover; }
+    .wh-card .overlay {
+        position: absolute; inset: 0;
+        background: linear-gradient(180deg, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.8) 100%);
+        display: flex; flex-direction: column; justify-content: flex-end; padding: 16px;
+    }
+    .wh-card .overlay h4 { color: #fff; font-family: "Outfit", sans-serif; font-size: 14px; }
+    .wh-card .overlay span { color: #ddd; font-size: 11px; }
+
+    /* customer cards */
+    .cust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .cust-card { background: #fff; border-radius: 16px; padding: 20px; text-align: center; border: 1px solid #eee; }
+    .cust-card img { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; margin-bottom: 12px; }
+    .cust-card h4 { font-family: "Outfit", sans-serif; font-weight: 500; font-size: 14px; }
+    .cust-card span { font-size: 12px; color: #888; }
+    .cust-card .cust-stat { margin-top: 12px; font-size: 12px; color: var(--pcolor); font-weight: 600; }
+
+    @media (max-width: 1100px) {
+        .stat-row, .fleet-grid, .wh-grid, .cust-grid { grid-template-columns: repeat(2,1fr); }
+        .split-2 { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 900px) {
+        body { flex-direction: column; }
+        .sidebar { width: 100%; height: auto; position: relative; }
+    }
+    @media (max-width: 560px) {
+        .stat-row, .fleet-grid, .wh-grid, .cust-grid { grid-template-columns: 1fr; }
+        .topbar { flex-wrap: wrap; gap: 15px; }
+    }
+</style>
+</head>
+<body>
+
+    <!-- ================= SIDEBAR (5 MENUS) ================= -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <span class="material-symbols-outlined">local_shipping</span>
+            <div>
+                <h1>Stackly</h1>
+                <span class="sub">Admin Panel</span>
+            </div>
+        </div>
+
+        <span class="nav-group-label">Main Menu</span>
+        <nav class="side-nav">
+            <button class="active" onclick="showView('overview', this)"><span class="material-symbols-outlined">dashboard</span> Overview</button>
+            <button onclick="showView('shipments', this)"><span class="material-symbols-outlined">local_shipping</span> Shipments</button>
+            <button onclick="showView('fleet', this)"><span class="material-symbols-outlined">directions_car</span> Fleet</button>
+            <button onclick="showView('warehouse', this)"><span class="material-symbols-outlined">warehouse</span> Warehouse</button>
+            <button onclick="showView('customers', this)"><span class="material-symbols-outlined">group</span> Customers</button>
+        </nav>
+
+        <div class="sidebar-footer">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=100&q=80" alt="Admin">
+            <div>
+                <h4>Michael Carter</h4>
+                <span>Operations Admin</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="main">
+
+        <div class="topbar">
+            <h2 id="topbarTitle">Overview</h2>
+            <div class="topbar-right">
+                <div class="search-box">
+                    <span class="material-symbols-outlined">search</span>
+                    <input type="text" placeholder="Search shipments, IDs...">
+                </div>
+                <span class="material-symbols-outlined">notifications</span>
+                <div class="topbar-avatar"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=100&q=80" alt="Admin"></div>
+            </div>
+        </div>
+
+        <!-- ========== 1. OVERVIEW VIEW ========== -->
+        <div class="view active" id="overview">
+            <div class="stat-row">
+                <div class="stat-card">
+                    <div class="top"><span class="material-symbols-outlined">inventory_2</span></div>
+                    <h2>1,284</h2>
+                    <p>Total Shipments</p>
+                    <span class="delta">+12.4% this month</span>
+                </div>
+                <div class="stat-card">
+                    <div class="top"><span class="material-symbols-outlined">local_shipping</span></div>
+                    <h2>326</h2>
+                    <p>In Transit</p>
+                    <span class="delta">+4.1% this month</span>
+                </div>
+                <div class="stat-card">
+                    <div class="top"><span class="material-symbols-outlined">task_alt</span></div>
+                    <h2>892</h2>
+                    <p>Delivered</p>
+                    <span class="delta">+9.8% this month</span>
+                </div>
+                <div class="stat-card">
+                    <div class="top"><span class="material-symbols-outlined">payments</span></div>
+                    <h2>$482K</h2>
+                    <p>Revenue (MTD)</p>
+                    <span class="delta down">-2.3% this month</span>
+                </div>
+            </div>
+
+            <div class="split-2">
+                <div class="panel">
+                    <div class="panel-head">
+                        <h3>Recent Shipments</h3>
+                        <button class="d-btn">View All <span class="material-symbols-outlined">arrow_outward</span></button>
+                    </div>
+                    <table>
+                        <thead><tr><th>Shipment</th><th>Route</th><th>Mode</th><th>Status</th></tr></thead>
+                        <tbody>
+                            <tr><td class="cell-item"><img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=100&q=80">#STK-2291</td><td>New York → Miami</td><td>Land</td><td><span class="badge transit">In Transit</span></td></tr>
+                            <tr><td class="cell-item"><img src="https://images.unsplash.com/photo-1601000938259-9fc7877428fc?auto=format&fit=crop&w=100&q=80">#STK-2288</td><td>Shanghai → LA</td><td>Sea</td><td><span class="badge delivered">Delivered</span></td></tr>
+                            <tr><td class="cell-item"><img src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=100&q=80">#STK-2285</td><td>Dubai → London</td><td>Air</td><td><span class="badge pending">Pending</span></td></tr>
+                            <tr><td class="cell-item"><img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=100&q=80">#STK-2280</td><td>Chicago → Dallas</td><td>Land</td><td><span class="badge delivered">Delivered</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="panel">
+                    <h3>Fleet Status</h3>
+                    <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=600&q=80" style="width:100%;height:150px;object-fit:cover;border-radius:14px;margin-bottom:16px;" alt="Warehouse floor">
+                    <table>
+                        <tbody>
+                            <tr><td>Trucks Active</td><td style="text-align:right;font-weight:600;">42 / 50</td></tr>
+                            <tr><td>Ships at Port</td><td style="text-align:right;font-weight:600;">6 / 8</td></tr>
+                            <tr><td>Planes Scheduled</td><td style="text-align:right;font-weight:600;">3 / 4</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== 2. SHIPMENTS VIEW ========== -->
+        <div class="view" id="shipments">
+            <div class="stat-row">
+                <div class="stat-card"><div class="top"><span class="material-symbols-outlined">flight</span></div><h2>184</h2><p>Air Shipments</p></div>
+                <div class="stat-card"><div class="top"><span class="material-symbols-outlined">directions_boat</span></div><h2>312</h2><p>Sea Shipments</p></div>
+                <div class="stat-card"><div class="top"><span class="material-symbols-outlined">local_shipping</span></div><h2>788</h2><p>Land Shipments</p></div>
+                <div class="stat-card"><div class="top"><span class="material-symbols-outlined">pending_actions</span></div><h2>27</h2><p>Awaiting Pickup</p></div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-head">
+                    <h3>All Shipments</h3>
+                    <button class="d-btn">New Shipment <span class="material-symbols-outlined">add</span></button>
+                </div>
+                <table>
+                    <thead><tr><th>Shipment</th><th>Customer</th><th>Route</th><th>Mode</th><th>ETA</th><th>Status</th></tr></thead>
+                    <tbody>
+                        <tr><td>#STK-2291</td><td>Vantra Retail</td><td>New York → Miami</td><td>Land</td><td>Jul 08</td><td><span class="badge transit">In Transit</span></td></tr>
+                        <tr><td>#STK-2288</td><td>Ferro Parts</td><td>Shanghai → LA</td><td>Sea</td><td>Jul 05</td><td><span class="badge delivered">Delivered</span></td></tr>
+                        <tr><td>#STK-2285</td><td>Coastline Exports</td><td>Dubai → London</td><td>Air</td><td>Jul 07</td><td><span class="badge pending">Pending</span></td></tr>
+                        <tr><td>#STK-2280</td><td>Nova Electronics</td><td>Chicago → Dallas</td><td>Land</td><td>Jul 04</td><td><span class="badge delivered">Delivered</span></td></tr>
+                        <tr><td>#STK-2277</td><td>Vantra Retail</td><td>Mumbai → Dubai</td><td>Sea</td><td>Jul 10</td><td><span class="badge transit">In Transit</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ========== 3. FLEET VIEW ========== -->
+        <div class="view" id="fleet">
+            <div class="stat-row">
+                <div class="stat-card"><div class="top"><span class="material-symbols-outlined">local_shipping</span></div><h2>50</h2><p>Total Trucks</p></div>
+                <div class="stat-card"><div class="top"><span class="material-symbols-outlined">directions_boat</span></div><h2>8</h2><p>Total Ships</p></div>
+                <div class="stat-card"><div class="top"><span class="material-symbols-outlined">flight</span></div><h2>4</h2><p>Total Planes</p></div>
+                <div class="stat-card"><div class="top"><span class="material-symbols-outlined">build</span></div><h2>5</h2><p>Under Maintenance</p></div>
+            </div>
+
+            <div class="panel">
+                <h3>Fleet Overview</h3>
+                <div class="fleet-grid">
+                    <div class="fleet-card">
+                        <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=500&q=80" alt="Freight truck">
+                        <div class="fleet-card-body">
+                            <h4>Truck Unit TX-14</h4>
+                            <p>Assigned Route: NY → Miami</p>
+                            <span class="badge active">Active</span>
+                        </div>
+                    </div>
+                    <div class="fleet-card">
+                        <img src="https://images.unsplash.com/photo-1601000938259-9fc7877428fc?auto=format&fit=crop&w=500&q=80" alt="Cargo ship">
+                        <div class="fleet-card-body">
+                            <h4>Vessel Pacific Star</h4>
+                            <p>Assigned Route: Shanghai → LA</p>
+                            <span class="badge active">Active</span>
+                        </div>
+                    </div>
+                    <div class="fleet-card">
+                        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=500&q=80" alt="Cargo plane">
+                        <div class="fleet-card-body">
+                            <h4>Cargo Jet CJ-02</h4>
+                            <p>Assigned Route: Dubai → London</p>
+                            <span class="badge maintenance">Maintenance</span>
+                        </div>
+                    </div>
+                    <div class="fleet-card">
+                        <img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&w=500&q=80" alt="Delivery van">
+                        <div class="fleet-card-body">
+                            <h4>Van Unit VN-08</h4>
+                            <p>Assigned Route: Local Deliveries</p>
+                            <span class="badge active">Active</span>
+                        </div>
+                    </div>
+                    <div class="fleet-card">
+                        <img src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=500&q=80" alt="Airport cargo loading">
+                        <div class="fleet-card-body">
+                            <h4>Cargo Jet CJ-05</h4>
+                            <p>Assigned Route: Mumbai → Dubai</p>
+                            <span class="badge active">Active</span>
+                        </div>
+                    </div>
+                    <div class="fleet-card">
+                        <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=500&q=80" alt="Ship at port">
+                        <div class="fleet-card-body">
+                            <h4>Vessel Coral Wave</h4>
+                            <p>Assigned Route: At Port - Loading</p>
+                            <span class="badge active">Active</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== 4. WAREHOUSE VIEW ========== -->
+        <div class="view" id="warehouse">
+            <div class="stat-row">
+                <div class="stat-card"><div class="top"><span class="material-symbols-outlined">warehouse</span></div><h2>12</h2><p>Active Warehouses</p></div>
+                <div class="stat-card"><div class="top"><span class="material-symbols-outlined">inventory</span></div><h2>84%</h2><p>Avg. Capacity Used</p></div>
+                <div class="stat-card"><div class="top"><span class="material-symbols-outlined">move_to_inbox</span></div><h2>3,120</h2><p>Items Stored</p></div>
+                <div class="stat-card"><div class="top"><span class="material-symbols-outlined">outbox</span></div><h2>218</h2><p>Dispatched Today</p></div>
+            </div>
+
+            <div class="panel">
+                <h3>Warehouse Locations</h3>
+                <div class="wh-grid">
+                    <div class="wh-card">
+                        <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=500&q=80" alt="New York warehouse">
+                        <div class="overlay"><h4>New York Hub</h4><span>Capacity 92%</span></div>
+                    </div>
+                    <div class="wh-card">
+                        <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=500&q=80" alt="Warehouse storage aisle">
+                        <div class="overlay"><h4>Dubai Hub</h4><span>Capacity 78%</span></div>
+                    </div>
+                    <div class="wh-card">
+                        <img src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=500&q=80" alt="Automated warehouse racks">
+                        <div class="overlay"><h4>Singapore Hub</h4><span>Capacity 65%</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h3>Inventory Snapshot</h3>
+                <table>
+                    <thead><tr><th>Warehouse</th><th>Item Category</th><th>Units in Stock</th><th>Status</th></tr></thead>
+                    <tbody>
+                        <tr><td>New York Hub</td><td>Electronics</td><td>842</td><td><span class="badge active">Healthy</span></td></tr>
+                        <tr><td>Dubai Hub</td><td>Apparel</td><td>1,204</td><td><span class="badge active">Healthy</span></td></tr>
+                        <tr><td>Singapore Hub</td><td>Automotive Parts</td><td>312</td><td><span class="badge maintenance">Low Stock</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ========== 5. CUSTOMERS VIEW ========== -->
+        <div class="view" id="customers">
+            <div class="stat-row">
+                <div class="stat-card"><div class="top"><span class="material-symbols-outlined">group</span></div><h2>1,046</h2><p>Total Customers</p></div>
+                <div class="stat-card"><div class="top"><span class="material-symbols-outlined">person_add</span></div><h2>58</h2><p>New This Month</p></div>
+                <div class="stat-card"><div class="top"><span class="material-symbols-outlined">workspace_premium</span></div><h2>142</h2><p>Enterprise Accounts</p></div>
+                <div class="stat-card"><div class="top"><span class="material-symbols-outlined">support_agent</span></div><h2>19</h2><p>Open Support Tickets</p></div>
+            </div>
+
+            <div class="panel">
+                <h3>Top Customers</h3>
+                <div class="cust-grid">
+                    <div class="cust-card">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80" alt="Customer">
+                        <h4>Vantra Retail</h4>
+                        <span>Enterprise Account</span>
+                        <p class="cust-stat">212 Shipments</p>
+                    </div>
+                    <div class="cust-card">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Customer">
+                        <h4>Ferro Parts</h4>
+                        <span>Business Account</span>
+                        <p class="cust-stat">168 Shipments</p>
+                    </div>
+                    <div class="cust-card">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=150&q=80" alt="Customer">
+                        <h4>Coastline Exports</h4>
+                        <span>Business Account</span>
+                        <p class="cust-stat">134 Shipments</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-head">
+                    <h3>Customer Directory</h3>
+                    <button class="d-btn">Add Customer <span class="material-symbols-outlined">add</span></button>
+                </div>
+                <table>
+                    <thead><tr><th>Customer</th><th>Contact</th><th>Account Type</th><th>Shipments</th></tr></thead>
+                    <tbody>
+                        <tr><td class="cell-item"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=100&q=80">Vantra Retail</td><td>ramesh@vantra.com</td><td>Enterprise</td><td>212</td></tr>
+                        <tr><td class="cell-item"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80">Ferro Parts</td><td>anjali@ferroparts.com</td><td>Business</td><td>168</td></tr>
+                        <tr><td class="cell-item"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=100&q=80">Coastline Exports</td><td>david@coastline.com</td><td>Business</td><td>134</td></tr>
+                        <tr><td class="cell-item"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=100&q=80">Nova Electronics</td><td>priya@novaelec.com</td><td>Enterprise</td><td>96</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        const titles = {
+            overview: "Overview",
+            shipments: "Shipments",
+            fleet: "Fleet",
+            warehouse: "Warehouse",
+            customers: "Customers"
+        };
+
+        function showView(id, btn) {
+            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+
+            document.querySelectorAll('.side-nav button').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            document.getElementById('topbarTitle').innerText = titles[id];
+        }
+    </script>
+
+</body>
+</html>

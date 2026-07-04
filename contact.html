@@ -33,18 +33,13 @@
         overflow-x: hidden;
         scroll-behavior: smooth;
     }
+    
 
     :root {
-        --pcolor: #EF644C;
-        --hcolor: #ff4e2e;
+        --pcolor: #EF644C
     }
 
-  
-    .nav-header-icons,
-    .nav-main-container {
-        display: none;
-    }
-
+    /*---header---*/
     .header {
         display: flex;
         position: fixed;
@@ -58,6 +53,12 @@
         z-index: 9999;
         transition: 0.4s;
     }
+
+       .nav-header-icons,
+    .nav-main-container {
+        display: none;
+    }
+
 
     .header.active {
         background:
@@ -264,7 +265,7 @@
     }
 
     .ship-btn:hover {
-        background: var(--hcolor);
+        background: #ff755d;
         transform: translateY(-4px);
         box-shadow: 0 16px 35px rgba(239, 100, 76, 0.45);
     }
@@ -484,47 +485,6 @@
         }
     }
 
-    /**/
-    .hero-section {
-        height: calc(100vh - 20px);
-        margin: 10px;
-        border-radius: 20px;
-        background: url("./src/hero-bg1.webp");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        font-family: "Outfit", sans-serif;
-        font-weight: 200;
-    }
-
-    .hero-text {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-        padding: 10px;
-    }
-
-    .hero-text h1 {
-        font-size: clamp(29px, 5vw, 70px);
-        max-width: 1100px;
-        text-align: center;
-        text-transform: uppercase;
-        color: white;
-        word-spacing: 5px;
-    }
-
-    .hero-text p {
-        font-size: clamp(16px, 1.7vw, 18px);
-        text-align: center;
-        line-height: 1.4;
-        color: white;
-        max-width: 600px;
-    }
 
     .page-btn {
         position: relative;
@@ -567,34 +527,9 @@
         transition: .4s ease;
     }
 
-    .hero-side-btn {
-        position: absolute;
-        right: 20px;
-        bottom: 20px;
-        display: flex;
-        flex-direction: column;
-        background: white;
-        border-radius: 15px;
-        overflow: hidden;
-        z-index: 1;
 
-    }
+    /*-----footer-----*/
 
-    .hero-side-btn button {
-        padding: clamp(15px, 2vw, 25px) clamp(15px, 2vw, 25px);
-        border: none;
-        transition: 0.4s ease;
-    }
-
-    .hero-side-btn button:hover {
-        background: #EF644C;
-    }
-
-    .hero-side-btn button span {
-        font-size: clamp(20px, 2.3vw, 25px);
-    }
-
-    /*footer*/
     .footer {
         display: flex;
         flex-direction: column;
@@ -930,6 +865,236 @@
 
         }
     }
+
+    /*added section*/
+
+     :root {
+        --pcolor: #EF644C;
+        --hcolor: #ff4e2e;
+        --dark: #1F1F1F;
+    }
+ 
+    .c-wrap {
+        margin: 10px;
+        font-family: "Noto Sans", sans-serif;
+    }
+ 
+    .c-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--pcolor);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+    }
+ 
+    .c-eyebrow::before {
+        content: "";
+        width: 24px;
+        height: 2px;
+        background: var(--pcolor);
+    }
+ 
+    .c-heading {
+        font-family: "Outfit", sans-serif;
+        font-weight: 300;
+        font-size: clamp(28px, 4vw, 46px);
+        max-width: 650px;
+        line-height: 1.2;
+    }
+ 
+    .c-heading b {
+        font-weight: 600;
+        color: var(--pcolor);
+    }
+ 
+    .c-btn {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 30px;
+        width: clamp(190px, 22vw, 230px);
+        border: 1px solid var(--pcolor);
+        border-radius: 10px;
+        background: transparent;
+        color: inherit;
+        overflow: hidden;
+        cursor: pointer;
+        transition: .8s ease;
+        z-index: 1;
+        text-decoration: none;
+        font-size: 15px;
+    }
+ 
+    .c-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 100%;
+        background: var(--pcolor);
+        transition: width .4s ease;
+        z-index: -1;
+    }
+ 
+    .c-btn:hover::before { width: 100%; }
+ 
+    .c-btn span {
+        background: var(--pcolor);
+        padding: 10px;
+        border-radius: 10px;
+        z-index: 2;
+        color: #fff;
+    }
+ 
+    .c-btn.on-dark { color: #fff; }
+    .c-btn.on-light { color: var(--dark); }
+ 
+    /* ---------- 1. CONTACT HERO ---------- */
+    .contact-hero {
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+        min-height: 420px;
+        display: flex;
+        align-items: center;
+        background-image: linear-gradient(90deg, rgba(31,31,31,0.9) 35%, rgba(31,31,31,0.4) 100%), url("https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1400&q=80");
+        background-size: cover;
+        background-position: center;
+        padding: 60px;
+    }
+    .contact-hero-content { max-width: 560px; }
+    .contact-hero-content .c-heading { color: #fff; }
+    .contact-hero-content p { color: #ddd; font-size: 14px; margin: 18px 0 30px; line-height: 1.7; max-width: 460px; }
+    @media (max-width: 700px) { .contact-hero { padding: 40px 25px; min-height: 340px; } }
+ 
+    /* ---------- 2. CONTACT INFO CARDS ---------- */
+    .info-section { padding: 90px 40px; }
+    .info-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+    .info-card {
+        border: 1px solid #eee;
+        border-radius: 20px;
+        padding: 35px 25px;
+        transition: .4s ease;
+    }
+    .info-card:hover { border-color: var(--pcolor); box-shadow: 0 15px 35px rgba(239,100,76,0.15); }
+    .info-card .material-symbols-outlined {
+        color: #fff;
+        background: var(--pcolor);
+        font-size: 24px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    .info-card h3 { font-family: "Outfit", sans-serif; font-weight: 500; font-size: 18px; margin-bottom: 8px; }
+    .info-card p { font-size: 13px; color: #666; line-height: 1.6; }
+    @media (max-width: 900px) { .info-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .info-grid { grid-template-columns: 1fr; } .info-section { padding: 50px 20px; } }
+ 
+    /* ---------- 3. CONTACT FORM + MAP ---------- */
+    .form-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        padding: 20px 40px 100px;
+    }
+    .form-box {
+        background: var(--dark);
+        border-radius: 20px;
+        padding: 50px;
+    }
+    .form-box .c-heading { color: #fff; margin-bottom: 25px; }
+    .form-box form { display: flex; flex-direction: column; gap: 16px; }
+    .form-row { display: flex; gap: 16px; }
+    .form-box input, .form-box textarea {
+        padding: 15px 18px;
+        border: 1px solid #444;
+        background: transparent;
+        color: #fff;
+        border-radius: 10px;
+        font-family: "Noto Sans", sans-serif;
+        font-size: 14px;
+        width: 100%;
+    }
+    .form-box input:focus, .form-box textarea:focus { outline: none; border-color: var(--pcolor); }
+    .form-box textarea { resize: none; height: 100px; }
+    .map-box { border-radius: 20px; overflow: hidden; min-height: 100%; }
+    .map-box img { width: 100%; height: 100%; object-fit: cover; }
+    @media (max-width: 900px) { .form-section { grid-template-columns: 1fr; padding: 20px 20px 60px; } .form-row { flex-direction: column; } .map-box { min-height: 300px; } }
+ 
+    /* ---------- 4. OUR OFFICES ---------- */
+    .offices-section { padding: 20px 40px 100px; }
+    .offices-section .c-heading { margin: 0 auto 50px; text-align: center; }
+    .offices-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    .office-card {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        min-height: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 30px;
+        background-size: cover;
+        background-position: center;
+    }
+    .office-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(0,0,0,0.05) 30%, rgba(0,0,0,0.85) 100%);
+        z-index: 0;
+    }
+    .office-card * { position: relative; z-index: 1; color: #fff; }
+    .office-card h3 { font-family: "Outfit", sans-serif; font-weight: 500; font-size: 19px; margin-bottom: 6px; }
+    .office-card p { font-size: 13px; color: #ddd; line-height: 1.5; }
+    @media (max-width: 900px) { .offices-grid { grid-template-columns: 1fr; } .offices-section { padding: 20px 20px 60px; } }
+ 
+    /* ---------- 5. FAQ / SUPPORT CTA ---------- */
+    .faq-section {
+        background: #F7F3F1;
+        border-radius: 20px;
+        margin: 10px 10px 30px;
+        padding: 90px 40px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: start;
+    }
+    .faq-left p { font-size: 14px; color: #666; margin: 18px 0 30px; max-width: 380px; line-height: 1.7; }
+    .faq-item {
+        border-bottom: 1px solid #e0d9d5;
+        padding: 22px 0;
+    }
+    .faq-item h4 {
+        font-family: "Outfit", sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+    }
+    .faq-item h4 .material-symbols-outlined { color: var(--pcolor); font-size: 20px; }
+    .faq-item p { font-size: 13px; color: #666; margin-top: 12px; line-height: 1.6; }
+    @media (max-width: 900px) { .faq-section { grid-template-columns: 1fr; padding: 50px 20px; } }
 </style>
 
 <body>
@@ -992,20 +1157,20 @@
             </div>
 
             <div class="nav-links">
-                <a href="index.html" class="active">Home
+                <a href="index.html" >Home
                     <span class="material-symbols-outlined aside">keyboard_arrow_right</span>
                     <span class="material-symbols-outlined adown">keyboard_arrow_down</span>
                 </a>
-                <a href="about.html">About Us<span
+                <a href="about.html" class="active">About Us<span
                         class="material-symbols-outlined aside">keyboard_arrow_right</span><span
                         class="material-symbols-outlined adown">
                         keyboard_arrow_down
                     </span></a>
-                <a href="pages.html">Pages<span class="material-symbols-outlined aside">keyboard_arrow_right</span><span
+                <a href="page.html">Pages<span class="material-symbols-outlined aside">keyboard_arrow_right</span><span
                         class="material-symbols-outlined adown">
                         keyboard_arrow_down
                     </span></a>
-                <a href="service.html">Services<span
+                <a href="services.html">Services<span
                         class="material-symbols-outlined aside">keyboard_arrow_right</span><span
                         class="material-symbols-outlined adown">
                         keyboard_arrow_down
@@ -1057,26 +1222,111 @@
 
     </section>
 
-    <section class="hero-section">
-
-
-        <div class="hero-text">
-            <h1>Proper Logistic is success for your company</h1>
-            <p>We deliver seamless logistics and supply chain solutions with speed, precision, and complete
-                reliability.
-            </p>
-            <button class="page-btn errorpage">Explore More <span class="material-symbols-outlined">arrow_outward</span>
-            </button>
+    
+<!-- ============ 1. CONTACT HERO ============ -->
+<section class="c-wrap contact-hero">
+    <div class="contact-hero-content">
+        <span class="c-eyebrow">Contact Stackly</span>
+        <h2 class="c-heading">Let's talk about your <b>next shipment</b></h2>
+        <p>Whether you're shipping a single pallet or running a full container load, our team is ready to help you find the right route.</p>
+        <a href="#" class="c-btn on-dark">Get a Quote <span class="material-symbols-outlined">arrow_outward</span></a>
+    </div>
+</section>
+ 
+<!-- ============ 2. CONTACT INFO CARDS ============ -->
+<section class="c-wrap info-section">
+    <span class="c-eyebrow">Reach Us</span>
+    <h2 class="c-heading" style="margin-bottom:40px;">Pick whichever way <b>works for you</b></h2>
+    <div class="info-grid">
+        <div class="info-card">
+            <span class="material-symbols-outlined">call</span>
+            <h3>Call Us</h3>
+            <p>+91 12345 67890<br>+91 09876 12345</p>
         </div>
-        <div class="hero-side-btn">
-            <button class="errorpage"><span class="material-symbols-outlined">
-                    arrow_left_alt
-                </span></button>
-            <button><span class="material-symbols-outlined">
-                    arrow_right_alt
-                </span></button>
+        <div class="info-card">
+            <span class="material-symbols-outlined">mail</span>
+            <h3>Email Us</h3>
+            <p>support@stackly.com<br>admin@stackly.com</p>
         </div>
-    </section>
+        <div class="info-card">
+            <span class="material-symbols-outlined">location_on</span>
+            <h3>Visit Us</h3>
+            <p>USA, New York - 1060<br>Str. First Avenue 1</p>
+        </div>
+        <div class="info-card">
+            <span class="material-symbols-outlined">schedule</span>
+            <h3>Working Hours</h3>
+            <p>Mon - Sat: 9am to 7pm<br>Sunday: Closed</p>
+        </div>
+    </div>
+</section>
+ 
+<!-- ============ 3. CONTACT FORM + MAP ============ -->
+<section class="form-section">
+    <div class="form-box">
+        <h2 class="c-heading">Send us a message</h2>
+        <form>
+            <div class="form-row">
+                <input type="text" placeholder="Full Name">
+                <input type="text" placeholder="Phone Number">
+            </div>
+            <input type="email" placeholder="Email Address">
+            <input type="text" placeholder="Subject">
+            <textarea placeholder="Your Message"></textarea>
+            <button type="submit" class="c-btn on-dark" style="border:1px solid var(--pcolor);width:200px;">Send Message <span class="material-symbols-outlined">arrow_outward</span></button>
+        </form>
+    </div>
+    <div class="map-box">
+        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=900&q=80" alt="Office location map view">
+    </div>
+</section>
+ 
+<!-- ============ 4. OUR OFFICES ============ -->
+<section class="c-wrap offices-section">
+    <h2 class="c-heading">Find us at our <b>global offices</b></h2>
+    <div class="offices-grid">
+        <div class="office-card" style="background-image:url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=800&q=80')">
+            <h3>New York, USA</h3>
+            <p>Str. First Avenue 1, New York - 1060</p>
+        </div>
+        <div class="office-card" style="background-image:url('https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=800&q=80')">
+            <h3>London, UK</h3>
+            <p>24 Harbour Road, London E1 8QS</p>
+        </div>
+        <div class="office-card" style="background-image:url('https://images.unsplash.com/photo-1555217851-6141535bd771?auto=format&fit=crop&w=800&q=80')">
+            <h3>Dubai, UAE</h3>
+            <p>Port Logistics Zone, Jebel Ali</p>
+        </div>
+    </div>
+</section>
+ 
+<!-- ============ 5. FAQ / SUPPORT ============ -->
+<section class="faq-section">
+    <div class="faq-left">
+        <span class="c-eyebrow">FAQ</span>
+        <h2 class="c-heading">Questions we hear <b>most often</b></h2>
+        <p>Can't find what you're looking for? Reach out to our support team and we'll get back within a few hours.</p>
+        <a href="#" class="c-btn on-light">Contact Support <span class="material-symbols-outlined">arrow_outward</span></a>
+    </div>
+    <div class="faq-right">
+        <div class="faq-item">
+            <h4>How do I track my shipment? <span class="material-symbols-outlined">add</span></h4>
+            <p>Use the tracking number sent to your email, or enter it directly on our Track a Shipment page.</p>
+        </div>
+        <div class="faq-item">
+            <h4>What areas do you deliver to? <span class="material-symbols-outlined">add</span></h4>
+            <p>We currently operate across 45 countries through our air, sea and land partner network.</p>
+        </div>
+        <div class="faq-item">
+            <h4>How fast can you get me a quote? <span class="material-symbols-outlined">add</span></h4>
+            <p>Most quote requests submitted through this page are answered within one business day.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Do you handle customs clearance? <span class="material-symbols-outlined">add</span></h4>
+            <p>Yes, our team manages documentation and customs clearance for all international shipments.</p>
+        </div>
+    </div>
+</section>
 
     <footer class="footer">
 
@@ -1173,6 +1423,7 @@
         </div>
 
     </footer>
+    
     <script src="script.js"></script>
 </body>
 
