@@ -911,24 +911,22 @@
     .p-btn.on-light { color: var(--dark); }
  
     /* ---------- 1. PAGES HERO ---------- */
-    .pages-hero {
+      .contact-hero {
         border-radius: 20px;
         overflow: hidden;
         position: relative;
-        min-height: 380px;
+        min-height: 720px;
         display: flex;
         align-items: center;
-        justify-content: center;
-        text-align: center;
-        flex-direction: column;
-        background-image: linear-gradient(rgba(31,31,31,0.75), rgba(31,31,31,0.75)), url("https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=1400&q=80");
+        background-image: linear-gradient(90deg, rgba(31,31,31,0.9) 35%, rgba(31,31,31,0.4) 100%), url("https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1400&q=80");
         background-size: cover;
         background-position: center;
         padding: 60px;
     }
-    .pages-hero .p-heading { color: #fff; margin: 0 auto 16px; }
-    .pages-hero p { color: #ddd; font-size: 14px; max-width: 460px; line-height: 1.7; }
-    @media (max-width: 700px) { .pages-hero { padding: 40px 25px; min-height: 300px; } }
+    .contact-hero-content { max-width: 560px; }
+    .contact-hero-content .p-heading { color: #fff; }
+    .contact-hero-content p { color: #ddd; font-size: 14px; margin: 18px 0 30px; line-height: 1.7; max-width: 460px; }
+    @media (max-width: 700px) { .contact-hero { padding: 40px 25px; min-height: 540px; } }
  
     /* ---------- 2. ALL PAGES GRID ---------- */
     .pages-grid-section { padding: 90px 40px; }
@@ -1080,7 +1078,7 @@
             </div>
 
             <div class="nav-links">
-                <a href="index.html" class="active">Home
+                <a href="index.html">Home
                     <span class="material-symbols-outlined aside">keyboard_arrow_right</span>
                     <span class="material-symbols-outlined adown">keyboard_arrow_down</span>
                 </a>
@@ -1089,11 +1087,11 @@
                         class="material-symbols-outlined adown">
                         keyboard_arrow_down
                     </span></a>
-                <a href="page.html">Pages<span class="material-symbols-outlined aside">keyboard_arrow_right</span><span
+                <a href="pages.html" class="active">Pages<span class="material-symbols-outlined aside">keyboard_arrow_right</span><span
                         class="material-symbols-outlined adown">
                         keyboard_arrow_down
                     </span></a>
-                <a href="services.html">Services<span
+                <a href="service.html">Services<span
                         class="material-symbols-outlined aside">keyboard_arrow_right</span><span
                         class="material-symbols-outlined adown">
                         keyboard_arrow_down
@@ -1147,9 +1145,20 @@
 
     
 <!-- ============ 1. PAGES HERO ============ -->
-<section class="p-wrap pages-hero">
-    <h2 class="p-heading">Explore <b>every corner</b> of Stackly</h2>
-    <p>From our services to our story, here's a quick map of everything you can find across the site.</p>
+<section class="p-wrap contact-hero">
+    <div class="contact-hero-content">
+        <span class="p-eyebrow">Our Pages</span>
+        <h2 class="p-heading">Move Your Business <b>Forward with Confidence</b></h2>
+        <p>
+            From local deliveries to global freight management, we're ready to support
+            your logistics needs with efficient transportation, secure handling,
+            and real-time shipment tracking.
+        </p>
+        <a href="#" class="p-btn on-dark">
+            Get in Touch
+            <span class="material-symbols-outlined">arrow_outward</span>
+        </a>
+    </div>
 </section>
  
 <!-- ============ 2. ALL PAGES GRID ============ -->
