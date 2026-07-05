@@ -902,7 +902,7 @@
         font-family: "Outfit", sans-serif;
         font-weight: 300;
         font-size: clamp(28px, 4vw, 46px);
-        max-width: 650px;
+        max-width: 530px;
         line-height: 1.2;
     }
  
@@ -1014,7 +1014,7 @@
     .form-box {
         background: var(--dark);
         border-radius: 20px;
-        padding: 50px;
+        padding: 40px 20px;
     }
     .form-box .c-heading { color: #fff; margin-bottom: 25px; }
     .form-box form { display: flex; flex-direction: column; gap: 16px; }
@@ -1062,9 +1062,9 @@
         background: linear-gradient(180deg, rgba(0,0,0,0.05) 30%, rgba(0,0,0,0.85) 100%);
         z-index: 0;
     }
-    .office-card * { position: relative; z-index: 1; color: #fff; }
-    .office-card h3 { font-family: "Outfit", sans-serif; font-weight: 500; font-size: 19px; margin-bottom: 6px; }
-    .office-card p { font-size: 13px; color: #ddd; line-height: 1.5; }
+    .office-card * { position: relative; z-index: 1; color: #fff; bottom: 10px;}
+    .office-card h3 { font-family: "Outfit", sans-serif; font-weight: 500; font-size: 19px; margin-bottom: 6px; min-height: 20px; }
+    .office-card p { font-size: 13px; color: #ddd; line-height: 1.5;}
     @media (max-width: 900px) { .offices-grid { grid-template-columns: 1fr; } .offices-section { padding: 20px 20px 60px; } }
  
     /* ---------- 5. FAQ / SUPPORT CTA ---------- */
