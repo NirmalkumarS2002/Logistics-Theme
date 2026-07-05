@@ -33,7 +33,7 @@
         overflow-x: hidden;
         scroll-behavior: smooth;
     }
-    
+
 
     :root {
         --pcolor: #EF644C
@@ -54,7 +54,7 @@
         transition: 0.4s;
     }
 
-       .nav-header-icons,
+    .nav-header-icons,
     .nav-main-container {
         display: none;
     }
@@ -868,17 +868,17 @@
 
     /*added section */
 
-     :root {
+    :root {
         --pcolor: #EF644C;
         --hcolor: #ff4e2e;
         --dark: #1F1F1F;
     }
- 
+
     .s-wrap {
         margin: 10px;
         font-family: "Noto Sans", sans-serif;
     }
- 
+
     .s-eyebrow {
         display: inline-flex;
         align-items: center;
@@ -890,14 +890,14 @@
         text-transform: uppercase;
         margin-bottom: 14px;
     }
- 
+
     .s-eyebrow::before {
         content: "";
         width: 24px;
         height: 2px;
         background: var(--pcolor);
     }
- 
+
     .s-heading {
         font-family: "Outfit", sans-serif;
         font-weight: 300;
@@ -905,12 +905,12 @@
         max-width: 650px;
         line-height: 1.2;
     }
- 
+
     .s-heading b {
         font-weight: 600;
         color: var(--pcolor);
     }
- 
+
     .s-btn {
         position: relative;
         display: inline-flex;
@@ -929,7 +929,7 @@
         text-decoration: none;
         font-size: 15px;
     }
- 
+
     .s-btn::before {
         content: "";
         position: absolute;
@@ -941,9 +941,11 @@
         transition: width .4s ease;
         z-index: -1;
     }
- 
-    .s-btn:hover::before { width: 100%; }
- 
+
+    .s-btn:hover::before {
+        width: 100%;
+    }
+
     .s-btn span {
         background: var(--pcolor);
         padding: 10px;
@@ -951,10 +953,15 @@
         z-index: 2;
         color: #fff;
     }
- 
-    .s-btn.on-dark { color: #fff; }
-    .s-btn.on-light { color: var(--dark); }
- 
+
+    .s-btn.on-dark {
+        color: #fff;
+    }
+
+    .s-btn.on-light {
+        color: var(--dark);
+    }
+
     /* ---------- 1. SERVICES HERO ---------- */
     .services-hero {
         border-radius: 20px;
@@ -963,19 +970,45 @@
         min-height: 720px;
         display: flex;
         align-items: center;
-        background-image: linear-gradient(90deg, rgba(31,31,31,0.9) 35%, rgba(31,31,31,0.35) 100%), url("https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=1400&q=80");
+        background-image: linear-gradient(90deg, rgba(31, 31, 31, 0.9) 35%, rgba(31, 31, 31, 0.35) 100%), url("https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=1400&q=80");
         background-size: cover;
         background-position: center;
         padding: 60px;
     }
-    .services-hero-content { max-width: 560px; }
-    .services-hero-content .s-heading { color: #fff; }
-    .services-hero-content p { color: #ddd; font-size: 14px; margin: 18px 0 30px; line-height: 1.7; max-width: 460px; }
-    @media (max-width: 700px) { .services-hero { padding: 40px 25px; min-height: 540px; } }
- 
+
+    .services-hero-content {
+        max-width: 560px;
+    }
+
+    .services-hero-content .s-heading {
+        color: #fff;
+    }
+
+    .services-hero-content p {
+        color: #ddd;
+        font-size: 14px;
+        margin: 18px 0 30px;
+        line-height: 1.7;
+        max-width: 460px;
+    }
+
+    @media (max-width: 700px) {
+        .services-hero {
+            padding: 40px 25px;
+            min-height: 540px;
+        }
+    }
+
     /* ---------- 2. CORE SERVICES (alternating rows) ---------- */
-    .core-section { padding: 90px 40px; }
-    .core-section > .s-heading { margin: 0 auto 60px; text-align: center; }
+    .core-section {
+        padding: 90px 40px;
+    }
+
+    .core-section>.s-heading {
+        margin: 0 auto 60px;
+        text-align: center;
+    }
+
     .core-row {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -983,11 +1016,31 @@
         align-items: center;
         margin-bottom: 70px;
     }
-    .core-row:last-child { margin-bottom: 0; }
-    .core-row.reverse .core-img { order: 2; }
-    .core-row.reverse .core-text { order: 1; }
-    .core-img { border-radius: 20px; overflow: hidden; height: 340px; }
-    .core-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .core-row:last-child {
+        margin-bottom: 0;
+    }
+
+    .core-row.reverse .core-img {
+        order: 2;
+    }
+
+    .core-row.reverse .core-text {
+        order: 1;
+    }
+
+    .core-img {
+        border-radius: 20px;
+        overflow: hidden;
+        height: 340px;
+    }
+
+    .core-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
     .core-text .material-symbols-outlined {
         color: #fff;
         background: var(--pcolor);
@@ -1000,73 +1053,263 @@
         font-size: 24px;
         margin-bottom: 20px;
     }
-    .core-text h3 { font-family: "Outfit", sans-serif; font-weight: 500; font-size: 24px; margin-bottom: 12px; }
-    .core-text p { font-size: 14px; color: #666; line-height: 1.7; margin-bottom: 20px; max-width: 420px; }
-    .core-text ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .core-text ul li { font-size: 13px; color: #444; display: flex; align-items: center; gap: 10px; }
-    .core-text ul li .material-symbols-outlined { background: none; width: auto; height: auto; color: var(--pcolor); font-size: 18px; }
-    @media (max-width: 900px) {
-        .core-row, .core-row.reverse { grid-template-columns: 1fr; }
-        .core-row.reverse .core-img, .core-row.reverse .core-text { order: unset; }
-        .core-img { height: 260px; }
-        .core-section { padding: 60px 20px; }
+
+    .core-text h3 {
+        font-family: "Outfit", sans-serif;
+        font-weight: 500;
+        font-size: 24px;
+        margin-bottom: 12px;
     }
- 
+
+    .core-text p {
+        font-size: 14px;
+        color: #666;
+        line-height: 1.7;
+        margin-bottom: 20px;
+        max-width: 420px;
+    }
+
+    .core-text ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .core-text ul li {
+        font-size: 13px;
+        color: #444;
+        display: flex;
+        gap: 10px;
+    }
+
+    .core-text ul li .material-symbols-outlined {
+        background: none;
+        width: auto;
+        height: auto;
+        color: var(--pcolor);
+        font-size: 18px;
+    }
+
+    @media (max-width: 900px) {
+
+        .core-row,
+        .core-row.reverse {
+            grid-template-columns: 1fr;
+        }
+
+        .core-row.reverse .core-img,
+        .core-row.reverse .core-text {
+            order: unset;
+        }
+
+        .core-img {
+            height: 260px;
+        }
+
+        .core-section {
+            padding: 60px 20px;
+        }
+    }
+
     /* ---------- 3. ADDITIONAL SERVICES ---------- */
     .addon-section {
         background: var(--dark);
         border-radius: 20px;
         padding: 80px 40px;
     }
-    .addon-section .s-heading { color: #fff; margin-bottom: 50px; }
+
+    .addon-section .s-heading {
+        color: #fff;
+        margin-bottom: 50px;
+    }
+
     .addon-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 20px;
+        align-items: stretch;
     }
+
     .addon-card {
         border: 1px solid #3a3a3a;
         border-radius: 20px;
         padding: 30px 25px;
         transition: .4s ease;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
     }
-    .addon-card:hover { border-color: var(--pcolor); }
-    .addon-card .material-symbols-outlined { color: var(--pcolor); font-size: 28px; margin-bottom: 16px; }
-    .addon-card h4 { color: #fff; font-family: "Outfit", sans-serif; font-weight: 500; font-size: 16px; margin-bottom: 8px; }
-    .addon-card p { color: #aaa; font-size: 13px; line-height: 1.6; }
-    @media (max-width: 900px) { .addon-grid { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 560px) { .addon-grid { grid-template-columns: 1fr; } .addon-section { padding: 50px 20px; } }
- 
+
+    .addon-card:hover {
+        border-color: var(--pcolor);
+        transform: translateY(-6px);
+    }
+
+    .addon-card .material-symbols-outlined {
+        color: var(--pcolor);
+        font-size: 28px;
+        margin-bottom: 16px;
+    }
+
+    .addon-card h4 {
+        color: #fff;
+        font-family: "Outfit", sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 1.5;
+        margin-bottom: 5px;
+        min-height: 10px;
+    }
+
+    .addon-card p {
+        color: #aaa;
+        font-size: 13px;
+        line-height: 1.7;
+        margin-top: auto;
+    }
+
+    @media (max-width: 900px) {
+
+        .addon-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .addon-card h4 {
+            min-height: 25px;
+        }
+    }
+
+    @media (max-width: 560px) {
+
+        .addon-section {
+            padding: 50px 20px;
+        }
+
+        .addon-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .addon-card h4 {
+            min-height: 15px;
+        }
+    }
+
     /* ---------- 4. SERVICE PLANS ---------- */
-    .plans-section { padding: 90px 40px; }
-    .plans-section .s-heading { margin: 0 auto 50px; text-align: center; }
+    .plans-section {
+        padding: 90px 40px;
+    }
+
+    .plans-section .s-heading {
+        margin: 0 auto 50px;
+        text-align: center;
+    }
+
     .plans-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 20px;
     }
+
     .plan-card {
         border: 1px solid #eee;
         border-radius: 20px;
         padding: 40px 30px;
         transition: .4s ease;
+        display: flex;
+        flex-direction: column;
     }
+
     .plan-card.featured {
         background: var(--dark);
         border-color: var(--dark);
         transform: translateY(-10px);
     }
-    .plan-card.featured * { color: #fff; }
-    .plan-card .tag { color: var(--pcolor); font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
-    .plan-card h3 { font-family: "Outfit", sans-serif; font-weight: 300; font-size: 32px; margin: 12px 0 20px; }
-    .plan-card h3 span { font-size: 14px; font-weight: 400; color: #888; }
-    .plan-card ul { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 30px; }
-    .plan-card ul li { font-size: 13px; display: flex; align-items: center; gap: 10px; color: #555; }
-    .plan-card.featured ul li { color: #ddd; }
-    .plan-card ul li .material-symbols-outlined { color: var(--pcolor); font-size: 18px; }
-    @media (max-width: 900px) { .plans-grid { grid-template-columns: 1fr; } .plan-card.featured { transform: none; } }
-    @media (max-width: 560px) { .plans-section { padding: 60px 20px; } }
- 
+
+    .plan-card.featured * {
+        color: #fff;
+    }
+
+    .plan-card .tag {
+        color: var(--pcolor);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    .plan-card h3 {
+        font-family: "Outfit", sans-serif;
+        font-weight: 300;
+        font-size: 32px;
+        margin: 12px 0 20px;
+        flex: 1;
+    }
+
+    .plan-card h3 span {
+        font-size: 14px;
+        font-weight: 400;
+        color: #888;
+    }
+
+    .plan-card ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        margin-bottom: 30px;
+    }
+
+    .plan-card ul li {
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #555;
+    }
+
+    .plan-card.featured ul li {
+        color: #ddd;
+    }
+
+    .plan-card ul li .material-symbols-outlined {
+        color: var(--pcolor);
+        font-size: 18px;
+    }
+
+    @media (max-width:1370px) {
+        .plan-card h3 {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+
+    @media (max-width: 900px) {
+        .plans-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .plan-card.featured {
+            transform: none;
+        }
+         .plan-card h3 {
+            display: block;
+    }
+        
+    }
+
+    @media (max-width: 560px) {
+        .plans-section {
+            padding: 60px 20px;
+        }
+           .plan-card h3 {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+
+
     /* ---------- 5. CTA QUOTE ---------- */
     .cta-section {
         border-radius: 20px;
@@ -1075,9 +1318,24 @@
         text-align: center;
         background: #F7F3F1;
     }
-    .cta-section .s-heading { margin: 0 auto 14px; }
-    .cta-section p { font-size: 14px; color: #666; max-width: 460px; margin: 0 auto 30px; line-height: 1.7; }
-    @media (max-width: 700px) { .cta-section { padding: 50px 25px; } }
+
+    .cta-section .s-heading {
+        margin: 0 auto 14px;
+    }
+
+    .cta-section p {
+        font-size: 14px;
+        color: #666;
+        max-width: 460px;
+        margin: 0 auto 30px;
+        line-height: 1.7;
+    }
+
+    @media (max-width: 700px) {
+        .cta-section {
+            padding: 50px 25px;
+        }
+    }
 </style>
 
 <body>
@@ -1140,7 +1398,7 @@
             </div>
 
             <div class="nav-links">
-                <a href="index.html" >Home
+                <a href="index.html">Home
                     <span class="material-symbols-outlined aside">keyboard_arrow_right</span>
                     <span class="material-symbols-outlined adown">keyboard_arrow_down</span>
                 </a>
@@ -1205,155 +1463,168 @@
 
     </section>
 
-     
-<!-- ============ 1. SERVICES HERO ============ -->
-<section class="s-wrap services-hero">
-    <div class="services-hero-content">
-        <span class="s-eyebrow">Our Services</span>
-        <h2 class="s-heading">Full-scope logistics, <b>one partner</b></h2>
-        <p>From a single parcel to a full container load, Stackly plans, moves and tracks your freight across every mode of transport.</p>
-        <a href="#" class="s-btn on-dark">Get a Quote <span class="material-symbols-outlined">arrow_outward</span></a>
-    </div>
-</section>
- 
-<!-- ============ 2. CORE SERVICES (alternating rows) ============ -->
-<section class="s-wrap core-section">
-    <h2 class="s-heading">What we handle for you</h2>
- 
-    <div class="core-row">
-        <div class="core-img">
-            <img src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=900&q=80" alt="Air freight cargo plane">
+
+    <!-- ============ 1. SERVICES HERO ============ -->
+    <section class="s-wrap services-hero">
+        <div class="services-hero-content">
+            <span class="s-eyebrow">Our Services</span>
+            <h2 class="s-heading">Full-scope logistics, <b>one partner</b></h2>
+            <p>From a single parcel to a full container load, Stackly plans, moves and tracks your freight across every
+                mode of transport.</p>
+            <a href="#" class="s-btn on-dark">Get a Quote <span
+                    class="material-symbols-outlined">arrow_outward</span></a>
         </div>
-        <div class="core-text">
-            <span class="material-symbols-outlined">flight</span>
-            <h3>Air Freight</h3>
-            <p>Fast, secure air cargo for shipments that can't wait, with priority handling at every hub.</p>
-            <ul>
-                <li><span class="material-symbols-outlined">check_circle</span> Express and standard air options</li>
-                <li><span class="material-symbols-outlined">check_circle</span> Live shipment tracking</li>
-            </ul>
+    </section>
+
+    <!-- ============ 2. CORE SERVICES (alternating rows) ============ -->
+    <section class="s-wrap core-section">
+        <h2 class="s-heading">What we handle for you</h2>
+
+        <div class="core-row">
+            <div class="core-img">
+                <img src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=900&q=80"
+                    alt="Air freight cargo plane">
+            </div>
+            <div class="core-text">
+                <span class="material-symbols-outlined">flight</span>
+                <h3>Air Freight</h3>
+                <p>Fast, secure air cargo for shipments that can't wait, with priority handling at every hub.</p>
+                <ul>
+                    <li><span class="material-symbols-outlined">check_circle</span> Express and standard air options
+                    </li>
+                    <li><span class="material-symbols-outlined">check_circle</span> Live shipment tracking</li>
+                </ul>
+            </div>
         </div>
-    </div>
- 
-    <div class="core-row reverse">
-        <div class="core-img">
-            <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=900&q=80" alt="Sea freight shipping port">
+
+        <div class="core-row reverse">
+            <div class="core-img">
+                <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=900&q=80"
+                    alt="Sea freight shipping port">
+            </div>
+            <div class="core-text">
+                <span class="material-symbols-outlined">directions_boat</span>
+                <h3>Sea Freight</h3>
+                <p>Full and part container loads with dependable port-to-port schedules and customs support.</p>
+                <ul>
+                    <li><span class="material-symbols-outlined">check_circle</span> FCL and LCL container options</li>
+                    <li><span class="material-symbols-outlined">check_circle</span> Port handling and documentation</li>
+                </ul>
+            </div>
         </div>
-        <div class="core-text">
-            <span class="material-symbols-outlined">directions_boat</span>
-            <h3>Sea Freight</h3>
-            <p>Full and part container loads with dependable port-to-port schedules and customs support.</p>
-            <ul>
-                <li><span class="material-symbols-outlined">check_circle</span> FCL and LCL container options</li>
-                <li><span class="material-symbols-outlined">check_circle</span> Port handling and documentation</li>
-            </ul>
+
+        <div class="core-row">
+            <div class="core-img">
+                <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=900&q=80"
+                    alt="Land freight truck on highway">
+            </div>
+            <div class="core-text">
+                <span class="material-symbols-outlined">local_shipping</span>
+                <h3>Land Transport</h3>
+                <p>A nationwide trucking network moving pallet, groupage and full-load freight door to door.</p>
+                <ul>
+                    <li><span class="material-symbols-outlined">check_circle</span> Same-day and scheduled routes</li>
+                    <li><span class="material-symbols-outlined">check_circle</span> Temperature-controlled options</li>
+                </ul>
+            </div>
         </div>
-    </div>
- 
-    <div class="core-row">
-        <div class="core-img">
-            <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=900&q=80" alt="Land freight truck on highway">
+
+        <div class="core-row reverse">
+            <div class="core-img">
+                <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=900&q=80"
+                    alt="Warehousing storage facility">
+            </div>
+            <div class="core-text">
+                <span class="material-symbols-outlined">warehouse</span>
+                <h3>Warehousing</h3>
+                <p>Secure storage and fulfilment hubs positioned close to your customers for faster last-mile delivery.
+                </p>
+                <ul>
+                    <li><span class="material-symbols-outlined">check_circle</span> Inventory management support</li>
+                    <li><span class="material-symbols-outlined">check_circle</span> Pick, pack and dispatch</li>
+                </ul>
+            </div>
         </div>
-        <div class="core-text">
-            <span class="material-symbols-outlined">local_shipping</span>
-            <h3>Land Transport</h3>
-            <p>A nationwide trucking network moving pallet, groupage and full-load freight door to door.</p>
-            <ul>
-                <li><span class="material-symbols-outlined">check_circle</span> Same-day and scheduled routes</li>
-                <li><span class="material-symbols-outlined">check_circle</span> Temperature-controlled options</li>
-            </ul>
+    </section>
+
+    <!-- ============ 3. ADDITIONAL SERVICES ============ -->
+    <section class="s-wrap addon-section">
+        <span class="s-eyebrow">Beyond Shipping</span>
+        <h2 class="s-heading">Support services that round out <b>the process</b></h2>
+        <div class="addon-grid">
+            <div class="addon-card">
+                <span class="material-symbols-outlined">fact_check</span>
+                <h4>Customs Clearance</h4>
+                <p>Documentation and clearance handled for every international shipment.</p>
+            </div>
+            <div class="addon-card">
+                <span class="material-symbols-outlined">inventory_2</span>
+                <h4>Packaging</h4>
+                <p>Freight-grade packaging that keeps cargo protected in transit.</p>
+            </div>
+            <div class="addon-card">
+                <span class="material-symbols-outlined">shield</span>
+                <h4>Cargo Insurance</h4>
+                <p>Coverage options that protect the full value of your shipment.</p>
+            </div>
+            <div class="addon-card">
+                <span class="material-symbols-outlined">insights</span>
+                <h4>Supply Chain </h4>
+                <p>Route and cost analysis to make your shipping process more efficient.</p>
+            </div>
         </div>
-    </div>
- 
-    <div class="core-row reverse">
-        <div class="core-img">
-            <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=900&q=80" alt="Warehousing storage facility">
+    </section>
+
+    <!-- ============ 4. SERVICE PLANS ============ -->
+    <section class="s-wrap plans-section">
+        <h2 class="s-heading">Plans built around <b>shipment volume</b></h2>
+        <div class="plans-grid">
+            <div class="plan-card">
+                <span class="tag">Starter</span>
+                <h3>Pay per Shipment <span>/ no contract</span></h3>
+                <ul>
+                    <li><span class="material-symbols-outlined">check_circle</span> Land or air freight only</li>
+                    <li><span class="material-symbols-outlined">check_circle</span> Standard tracking</li>
+                    <li><span class="material-symbols-outlined">check_circle</span> Email support</li>
+                </ul>
+                <a href="#" class="s-btn on-light">Get Started <span
+                        class="material-symbols-outlined">arrow_outward</span></a>
+            </div>
+            <div class="plan-card featured">
+                <span class="tag">Business</span>
+                <h3>Monthly Contract <span>/ most popular</span></h3>
+                <ul>
+                    <li><span class="material-symbols-outlined">check_circle</span> All transport modes</li>
+                    <li><span class="material-symbols-outlined">check_circle</span> Real-time tracking</li>
+                    <li><span class="material-symbols-outlined">check_circle</span> Dedicated account manager</li>
+                </ul>
+                <a href="#" class="s-btn on-dark">Get Started <span
+                        class="material-symbols-outlined">arrow_outward</span></a>
+            </div>
+            <div class="plan-card">
+                <span class="tag">Enterprise</span>
+                <h3>Custom Plan <span>/ high volume</span></h3>
+                <ul>
+                    <li><span class="material-symbols-outlined">check_circle</span> Dedicated fleet allocation</li>
+                    <li><span class="material-symbols-outlined">check_circle</span> Warehousing included</li>
+                    <li><span class="material-symbols-outlined">check_circle</span> 24/7 priority support</li>
+                </ul>
+                <a href="#" class="s-btn on-light">Talk to Sales <span
+                        class="material-symbols-outlined">arrow_outward</span></a>
+            </div>
         </div>
-        <div class="core-text">
-            <span class="material-symbols-outlined">warehouse</span>
-            <h3>Warehousing</h3>
-            <p>Secure storage and fulfilment hubs positioned close to your customers for faster last-mile delivery.</p>
-            <ul>
-                <li><span class="material-symbols-outlined">check_circle</span> Inventory management support</li>
-                <li><span class="material-symbols-outlined">check_circle</span> Pick, pack and dispatch</li>
-            </ul>
-        </div>
-    </div>
-</section>
- 
-<!-- ============ 3. ADDITIONAL SERVICES ============ -->
-<section class="s-wrap addon-section">
-    <span class="s-eyebrow">Beyond Shipping</span>
-    <h2 class="s-heading">Support services that round out <b>the process</b></h2>
-    <div class="addon-grid">
-        <div class="addon-card">
-            <span class="material-symbols-outlined">fact_check</span>
-            <h4>Customs Clearance</h4>
-            <p>Documentation and clearance handled for every international shipment.</p>
-        </div>
-        <div class="addon-card">
-            <span class="material-symbols-outlined">inventory_2</span>
-            <h4>Packaging</h4>
-            <p>Freight-grade packaging that keeps cargo protected in transit.</p>
-        </div>
-        <div class="addon-card">
-            <span class="material-symbols-outlined">shield</span>
-            <h4>Cargo Insurance</h4>
-            <p>Coverage options that protect the full value of your shipment.</p>
-        </div>
-        <div class="addon-card">
-            <span class="material-symbols-outlined">insights</span>
-            <h4>Supply Chain Consulting</h4>
-            <p>Route and cost analysis to make your shipping process more efficient.</p>
-        </div>
-    </div>
-</section>
- 
-<!-- ============ 4. SERVICE PLANS ============ -->
-<section class="s-wrap plans-section">
-    <h2 class="s-heading">Plans built around <b>shipment volume</b></h2>
-    <div class="plans-grid">
-        <div class="plan-card">
-            <span class="tag">Starter</span>
-            <h3>Pay per Shipment <span>/ no contract</span></h3>
-            <ul>
-                <li><span class="material-symbols-outlined">check_circle</span> Land or air freight only</li>
-                <li><span class="material-symbols-outlined">check_circle</span> Standard tracking</li>
-                <li><span class="material-symbols-outlined">check_circle</span> Email support</li>
-            </ul>
-            <a href="#" class="s-btn on-light">Get Started <span class="material-symbols-outlined">arrow_outward</span></a>
-        </div>
-        <div class="plan-card featured">
-            <span class="tag">Business</span>
-            <h3>Monthly Contract <span>/ most popular</span></h3>
-            <ul>
-                <li><span class="material-symbols-outlined">check_circle</span> All transport modes</li>
-                <li><span class="material-symbols-outlined">check_circle</span> Real-time tracking</li>
-                <li><span class="material-symbols-outlined">check_circle</span> Dedicated account manager</li>
-            </ul>
-            <a href="#" class="s-btn on-dark">Get Started <span class="material-symbols-outlined">arrow_outward</span></a>
-        </div>
-        <div class="plan-card">
-            <span class="tag">Enterprise</span>
-            <h3>Custom Plan <span>/ high volume</span></h3>
-            <ul>
-                <li><span class="material-symbols-outlined">check_circle</span> Dedicated fleet allocation</li>
-                <li><span class="material-symbols-outlined">check_circle</span> Warehousing included</li>
-                <li><span class="material-symbols-outlined">check_circle</span> 24/7 priority support</li>
-            </ul>
-            <a href="#" class="s-btn on-light">Talk to Sales <span class="material-symbols-outlined">arrow_outward</span></a>
-        </div>
-    </div>
-</section>
- 
-<!-- ============ 5. CTA QUOTE ============ -->
-<section class="cta-section">
-    <span class="s-eyebrow">Ready When You Are</span>
-    <h2 class="s-heading">Let's find the right service for your shipment</h2>
-    <p>Tell us what you're moving and where it's going — we'll come back with a route and rate within one business day.</p>
-    <a href="#" class="s-btn on-light" style="margin: 0 auto;">Request a Quote <span class="material-symbols-outlined">arrow_outward</span></a>
-</section>
- 
+    </section>
+
+    <!-- ============ 5. CTA QUOTE ============ -->
+    <section class="cta-section">
+        <span class="s-eyebrow">Ready When You Are</span>
+        <h2 class="s-heading">Let's find the right service for your shipment</h2>
+        <p>Tell us what you're moving and where it's going — we'll come back with a route and rate within one business
+            day.</p>
+        <a href="#" class="s-btn on-light" style="margin: 0 auto;">Request a Quote <span
+                class="material-symbols-outlined">arrow_outward</span></a>
+    </section>
+
 
     <footer class="footer">
 
@@ -1450,7 +1721,7 @@
         </div>
 
     </footer>
-    
+
     <script src="script.js"></script>
 </body>
 
