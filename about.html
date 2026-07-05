@@ -964,22 +964,41 @@
 
     /*about us */
 
-     .contact-hero {
+    .contact-hero {
         border-radius: 20px;
         overflow: hidden;
         position: relative;
         min-height: 720px;
         display: flex;
         align-items: center;
-        background-image: linear-gradient(90deg, rgba(31,31,31,0.9) 35%, rgba(31,31,31,0.4) 100%), url("https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1400&q=80");
+        background-image: linear-gradient(90deg, rgba(31, 31, 31, 0.9) 35%, rgba(31, 31, 31, 0.4) 100%), url("https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1400&q=80");
         background-size: cover;
         background-position: center;
         padding: 60px;
     }
-    .contact-hero-content { max-width: 560px; }
-    .contact-hero-content .a-heading { color: #fff; }
-    .contact-hero-content p { color: #ddd; font-size: 14px; margin: 18px 0 30px; line-height: 1.7; max-width: 460px; }
-    @media (max-width: 700px) { .contact-hero { padding: 40px 25px; min-height: 540px; } }
+
+    .contact-hero-content {
+        max-width: 560px;
+    }
+
+    .contact-hero-content .a-heading {
+        color: #fff;
+    }
+
+    .contact-hero-content p {
+        color: #ddd;
+        font-size: 14px;
+        margin: 18px 0 30px;
+        line-height: 1.7;
+        max-width: 460px;
+    }
+
+    @media (max-width: 700px) {
+        .contact-hero {
+            padding: 40px 25px;
+            min-height: 540px;
+        }
+    }
 
     /* ---------- 1. ABOUT INTRO / STORY ---------- */
     .about-hero {
@@ -1054,7 +1073,7 @@
         border-radius: 20px;
         padding: 80px 40px;
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 30px;
     }
 
@@ -1089,7 +1108,7 @@
         color: #bbb;
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 960px) {
         .mv-section {
             grid-template-columns: 1fr;
             padding: 60px 20px;
@@ -1097,86 +1116,101 @@
     }
 
     /* ---------- 3. OUR JOURNEY / TIMELINE ---------- */
-    .journey-section {
-        padding: 100px 40px;
+  .journey-section{
+    padding:100px 40px;
+    background:#f8fafc;
+}
+
+.journey-section .a-heading{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.journey-track{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.journey-step{
+    background:#fff;
+    padding:35px 25px 30px;
+    border-radius:18px;
+    text-align:center;
+    position:relative;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:.35s;
+    overflow:hidden;
+}
+
+.journey-step::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:5px;
+    background:var(--pcolor);
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:.35s;
+}
+
+.journey-step:hover{
+    transform:translateY(-10px);
+}
+
+.journey-step:hover::before{
+    transform:scaleX(1);
+}
+
+.journey-step .dot{
+    width:65px;
+    height:65px;
+    margin:0 auto 20px;
+    border-radius:50%;
+    background:rgba(16,185,129,.12);
+    color:var(--pcolor);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    font-weight:700;
+    font-family:"Outfit",sans-serif;
+}
+
+.journey-step h4{
+    font-size:22px;
+    margin-bottom:12px;
+    font-family:"Outfit",sans-serif;
+    color:#111827;
+}
+
+.journey-step p{
+    color:#6b7280;
+    line-height:1.8;
+    font-size:15px;
+}
+
+@media(max-width:992px){
+
+    .journey-track{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .journey-section .a-heading {
-        margin: 0 auto 60px;
-        text-align: center;
+}
+
+@media(max-width:600px){
+
+    .journey-section{
+        padding:70px 20px;
     }
 
-    .journey-track {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
-        position: relative;
+    .journey-track{
+        grid-template-columns:1fr;
     }
 
-    .journey-track::before {
-        content: "";
-        position: absolute;
-        top: 14px;
-        left: 5%;
-        width: 90%;
-        height: 1px;
-        background: #e5e5e5;
-    }
-
-    .journey-step {
-        position: relative;
-        padding-top: 45px;
-    }
-
-    .journey-step .dot {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        background: var(--pcolor);
-        color: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: "Outfit", sans-serif;
-        font-size: 12px;
-        font-weight: 700;
-    }
-
-    .journey-step h4 {
-        font-family: "Outfit", sans-serif;
-        font-weight: 600;
-        font-size: 17px;
-        margin-bottom: 8px;
-    }
-
-    .journey-step p {
-        font-size: 13px;
-        color: #666;
-        line-height: 1.6;
-    }
-
-    @media (max-width: 900px) {
-        .journey-track {
-            grid-template-columns: 1fr 1fr;
-        }
-
-        .journey-track::before {
-            display: none;
-        }
-    }
-
-    @media (max-width: 560px) {
-        .journey-section {
-            padding: 60px 20px;
-        }
-
-        .journey-track {
-            grid-template-columns: 1fr;
-        }
-    }
+}
 
     /* ---------- 4. LEADERSHIP TEAM ---------- */
     .team-section {
@@ -1418,8 +1452,8 @@
             <span class="a-eyebrow">About Us</span>
             <h2 class="a-heading">Driving <b>Smarter Logistics</b> Across Every Mile</h2>
             <p>
-                    We deliver reliable transportation, warehousing, and supply chain solutions,
-    helping businesses move goods safely, efficiently, and on time.
+                We deliver reliable transportation, warehousing, and supply chain solutions,
+                helping businesses move goods safely, efficiently, and on time.
             </p>
             <a href="#" class="a-btn on-dark">
                 Explore Our Services
@@ -1463,6 +1497,16 @@
             <p>To be the most trusted logistics partner in every market we serve, known for dependable delivery and
                 honest communication at every step.</p>
         </div>
+
+     <div class="mv-card">
+
+    <span class="material-symbols-outlined">travel_explore</span>
+    <h3>Future Vision</h3>
+    <p>
+        To become a global leader in smart logistics by delivering reliable,
+        innovative, and customer-focused supply chain solutions.
+    </p>
+</div>
     </section>
 
     <!-- ============ 3. OUR JOURNEY / TIMELINE ============ -->
