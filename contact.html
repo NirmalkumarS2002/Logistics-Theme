@@ -1265,16 +1265,25 @@
 <section class="form-section">
     <div class="form-box">
         <h2 class="c-heading">Send us a message</h2>
-        <form>
-            <div class="form-row">
-                <input type="text" placeholder="Full Name">
-                <input type="text" placeholder="Phone Number">
-            </div>
-            <input type="email" placeholder="Email Address">
-            <input type="text" placeholder="Subject">
-            <textarea placeholder="Your Message"></textarea>
-            <button type="submit" class="c-btn on-dark" style="border:1px solid var(--pcolor);width:200px;">Send Message <span class="material-symbols-outlined">arrow_outward</span></button>
-        </form>
+  <form id="contactForm">
+
+    <div class="form-row">
+        <input type="text" id="name" placeholder="Full Name">
+        <input type="tel" id="phone" placeholder="Phone Number" maxlength="10">
+    </div>
+
+    <input type="email" id="email" placeholder="Email Address">
+
+    <input type="text" id="subject" placeholder="Subject">
+
+    <textarea id="message" placeholder="Your Message"></textarea>
+
+    <button type="submit" class="c-btn on-dark" style="border:1px solid var(--pcolor);width:200px;">
+        Send Message
+        <span class="material-symbols-outlined">arrow_outward</span>
+    </button>
+
+</form>
     </div>
     <div class="map-box">
         <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=900&q=80" alt="Office location map view">
@@ -1425,6 +1434,7 @@
     </footer>
     
     <script src="script.js"></script>
+    <script src="contact.js"></script>
 </body>
 
 

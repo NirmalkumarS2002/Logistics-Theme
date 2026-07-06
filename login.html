@@ -285,6 +285,11 @@
         }
 
     }
+
+    input[type="password"]::-ms-reveal,
+    input[type="password"]::-ms-clear {
+        display: none;
+    }
 </style>
 
 <body>
@@ -296,7 +301,6 @@
             <h1>welcome Back</h1>
             <p>To keep connected with us Please
                 Login with your personal info</p>
-
         </div>
 
         <div class="left">
@@ -400,22 +404,41 @@
 
             //save email
 
-            localStorage.setItem("useremail",loginemail.value.trim())
-       
+            localStorage.setItem("useremail", loginemail.value.trim())
+
 
             //navigatie to respective page
 
-            if(role.value=="Admin"){
-                window.location.href="admin.html"
+            if (role.value == "Admin") {
+                window.location.href = "admin.html"
             }
 
-            if(role.value=="Client"){
-                window.location.href="client.html"
+            if (role.value == "Client") {
+                window.location.href = "client.html"
             }
-        
+
             alert("Login Successfully!")
 
         })
+
+        //eye 
+
+        const eye = document.querySelector(".passeye");
+const password = document.querySelector("#loginpass");
+
+eye.addEventListener("click", () => {
+
+    if (password.type === "password") {
+        password.type = "text";
+        eye.textContent = "visibility_off";
+    } else {
+        password.type = "password";
+        eye.textContent = "visibility";
+    }
+
+});
+
+
     </script>
 </body>
 

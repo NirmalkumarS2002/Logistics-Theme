@@ -1605,13 +1605,17 @@
     <div class="quote-form">
         <span class="eyebrow">Get A Free Quote</span>
         <h2 class="sec-heading">Tell us about your shipment</h2>
-        <form>
-            <input type="text" placeholder="Full Name">
-            <input type="email" placeholder="Email Address">
-            <input type="text" placeholder="Origin - Destination">
-            <textarea placeholder="Shipment details"></textarea>
-            <button type="submit" class="sec-btn on-dark" style="border:1px solid var(--pcolor);width:200px;">Send Request <span class="material-symbols-outlined">arrow_outward</span></button>
-        </form>
+ <form id="quoteForm">
+    <input type="text" id="name" placeholder="Full Name">
+    <input type="email" id="email" placeholder="Email Address">
+    <input type="text" id="route" placeholder="Origin - Destination">
+    <textarea id="details" placeholder="Shipment Details"></textarea>
+
+    <button type="submit" class="sec-btn on-dark" style="border:1px solid var(--pcolor);width:200px;">
+        Send Request
+        <span class="material-symbols-outlined">arrow_outward</span>
+    </button>
+</form>
     </div>
 </section>
 
