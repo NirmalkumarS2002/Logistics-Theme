@@ -45,7 +45,7 @@
         align-items: center;
         min-height: 100vh;
         padding: 10px;
-    background: linear-gradient(135deg,rgb(211, 211, 211),rgb(180, 180, 180));
+        background: linear-gradient(135deg, rgb(211, 211, 211), rgb(180, 180, 180));
         position: relative;
     }
 
@@ -57,7 +57,7 @@
         width: 100%;
         max-width: 1000px;
         border-radius: 20px;
-        box-shadow: 1px 1px  30px rgba(255, 255, 255, 0.397);
+        box-shadow: 1px 1px 30px rgba(255, 255, 255, 0.397);
         overflow: hidden;
     }
 
@@ -66,7 +66,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background: linear-gradient(125deg,#ff4e2f67,#ff503196),url("./src/login2.webp");
+        background: linear-gradient(125deg, #ff4e2f67, #ff503196), url("./src/login2.webp");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
@@ -223,7 +223,7 @@
         font-size: 20px;
         top: 50%;
         transform: translateY(-50%);
-           color: var(--pcolor);
+        color: var(--pcolor);
     }
 
     .inputbox .passeye {
@@ -232,7 +232,7 @@
         font-size: 20px;
         top: 50%;
         transform: translateY(-50%);
-           color: var(--pcolor);
+        color: var(--pcolor);
     }
 
     .left .pagebtn {
@@ -243,7 +243,7 @@
     }
 
     .left .pagebtn span {
-        font-size: 24px;    
+        font-size: 24px;
     }
 
     .formfooter {
@@ -296,9 +296,7 @@
             <h1>welcome Back</h1>
             <p>To keep connected with us Please
                 Login with your personal info</p>
-            <button class="pagebtn signbtn">Sign Up <span class="material-symbols-outlined">
-                    login
-                </span></button>
+
         </div>
 
         <div class="left">
@@ -361,6 +359,64 @@
         </div>
 
     </section>
+    <script>
+        const form = document.querySelector(".form")
+        const role = document.querySelector("#role")
+        const loginemail = document.querySelector("#Loginemail")
+        const loginpass = document.querySelector("#loginpass")
+
+        const emailregex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault()
+            if (role.value.trim() == "") {
+                alert("please select your rold");
+                role.focus();
+                return;
+            }
+            if (loginemail.value.trim() == "") {
+                alert("please enter Your Email")
+                loginemail.focus();
+                return;
+            }
+
+            if (!emailregex.test(loginemail.value.trim())) {
+                alert("pleae enter valid email")
+                loginemail.focus();
+                return;
+            }
+
+            if (loginpass.value.trim() == "") {
+                alert("pleae enter Your Password")
+                loginpass.focus();
+                return;
+            }
+
+            if (loginpass.value.trim().length < 6) {
+                alert("password mustbe in six chars")
+                loginpass.focus();
+                return;
+            }
+
+            //save email
+
+            localStorage.setItem("useremail",loginemail.value.trim())
+       
+
+            //navigatie to respective page
+
+            if(role.value=="Admin"){
+                window.location.href="admin.html"
+            }
+
+            if(role.value=="Client"){
+                window.location.href="client.html"
+            }
+        
+            alert("Login Successfully!")
+
+        })
+    </script>
 </body>
 
 </html>
