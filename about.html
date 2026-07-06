@@ -810,6 +810,13 @@
         gap: 10px;
     }
 
+    
+    .footer-bottom div{
+        display: flex;
+        gap: clamp(15px,3vw,50px);
+    }
+
+
     .footer-bottom p {
         font-size: 14px;
         color: white;
@@ -977,6 +984,13 @@
         padding: 60px;
     }
 
+    .contact-hero .a-btn{
+        text-wrap: nowrap;
+        width: 100%;
+        max-width: 240px;
+
+    }
+
     .contact-hero-content {
         max-width: 560px;
     }
@@ -984,6 +998,8 @@
     .contact-hero-content .a-heading {
         color: #fff;
     }
+
+
 
     .contact-hero-content p {
         color: #ddd;
@@ -1231,6 +1247,16 @@
         border-radius: 20px;
         overflow: hidden;
         background: #F7F3F1;
+         transition: box-shadow 0.7s ease;
+    }
+
+    
+    .team-card:hover{
+        border: 1px solid var(--hcolor);
+        transform: scale(1.02);
+        box-shadow: 1px 1px 20px #ef644c70;
+        transform: scale(1.02)
+
     }
 
     .team-card img {
@@ -1652,12 +1678,12 @@
 
                 <div class="footer2">
                     <h2>Company</h2>
-                    <div>
-                        <a href="404.html">Home</a>
-                        <a href="404.html">About Us</a>
-                        <a href="404.html">Pages</a>
-                        <a href="404.html">Services</a>
-                        <a href="404.html">Contact</a>
+                     <div>
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Us</a>
+                        <a href="pages.html">Pages</a>
+                        <a href="service.html">Services</a>
+                        <a href="contact.html">Contact</a>
                     </div>
                 </div>
 
@@ -1675,10 +1701,12 @@
 
             </div>
 
-            <div class="footer-bottom">
+           <div class="footer-bottom">
                 <p>@Logistics 2026.All Rights Reserved.</p>
-                <a href="404.html">Terms of use Privacy Policy</a>
+               <div>
+                 <a href="404.html">Terms of use </a> <a href="404.html">Privacy Policy</a>
             </div>
+               </div>
 
 
         </div>

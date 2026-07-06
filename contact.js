@@ -92,3 +92,38 @@ form.addEventListener("submit", (e) => {
     form.reset();
 
 });
+
+// faq
+
+const faqItems = document.querySelectorAll(".faq-item");
+
+faqItems.forEach((item) => {
+
+    const question = item.querySelector("h4");
+
+    question.addEventListener("click", () => {
+
+        faqItems.forEach((faq) => {
+            const ans = faq.querySelector("p");
+            const ic = faq.querySelector(".material-symbols-outlined");
+
+            if (faq !== item) {
+                ans.style.display = "none";
+                ic.textContent = "add";
+            }
+        });
+
+        const answer = item.querySelector("p");
+        const icon = item.querySelector(".material-symbols-outlined");
+
+        if (answer.style.display === "block") {
+            answer.style.display = "none";
+            icon.textContent = "add";
+        } else {
+            answer.style.display = "block";
+            icon.textContent = "remove";
+        }
+
+    });
+
+});

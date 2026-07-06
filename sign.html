@@ -66,7 +66,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background: linear-gradient(125deg, #ff4e2f67, #ff503196), url("./src/loginbg.webp");
+        background: linear-gradient(125deg, #1b040096, #27070196), url("./src/loginbg.webp");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
@@ -290,6 +290,94 @@ input[type="password"]::-ms-reveal,
 input[type="password"]::-ms-clear {
     display: none;
 }
+
+
+    .custom-select {
+        position: relative;
+        width: 100%;
+  
+        border-radius: 7px;
+
+        border: 1px solid var(--pcolor);
+    }
+
+    .select-btn {
+        height: 45px;
+        border: 1px solid var(--hcolor);
+        border-radius: 10px;
+        padding: 0 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        background: #fff;
+        transition: .3s;
+             
+    }
+
+    .select-btn:hover {
+        border-color: var(--hcolor);
+    }
+
+    .select-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .select-left .material-symbols-outlined {
+        color:#EF644C;
+        font-size: 22px;
+    }
+
+    .selected-text {
+         font-size: 12px;
+    }
+
+    .arrow {
+        color: var(--hcolor);
+        transition: .3s;
+    }
+
+    .arrow.rotate {
+        transform: rotate(180deg);
+    }
+
+    .options {
+        position: absolute;
+        top: 55px;
+        left: 0;
+        width: 100%;
+        list-style: none;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, .08);
+        display: none;
+        z-index: 100;
+    }
+
+    .options.active {
+        display: block;
+    }
+
+    .options li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 15px;
+        cursor: pointer;
+        transition: .3s;
+    }
+
+    .options li:hover {
+        background: #fff2ee;
+    }
+
+    .options li .material-symbols-outlined {
+        color: #EF644C;
+    }
 </style>
 
 <body>
@@ -317,21 +405,38 @@ input[type="password"]::-ms-clear {
 
         <form class="form">
 
-            <div class="labelbox">
-                <label for="role">Select Role</label>
+          <div class="labelbox">
+                    <label>Select Role</label>
 
-                <div class="inputbox">
-                    <select id="role">
-                        <option value="">Select Role</option>
-                        <option value="Admin">Admin</option>
-                        <option value="Client">Client</option>
-                    </select>
+                    <div class="custom-select">
 
-                    <span class="material-symbols-outlined ispan">
-                        delivery_truck_speed
-                    </span>
+                        <div class="select-btn">
+                            <div class="select-left">
+                                <span class="material-symbols-outlined">delivery_truck_speed</span>
+                                <span class="selected-text">Select Role</span>
+                            </div>
+
+                            <span class="material-symbols-outlined arrow">
+                                keyboard_arrow_down
+                            </span>
+                        </div>
+
+                        <ul class="options">
+                            <li data-value="Admin">
+
+                                Admin
+                            </li>
+
+                            <li data-value="Client">
+            
+                                Client
+                            </li>
+                        </ul>
+
+                        <input type="hidden" id="role" name="role">
+
+                    </div>
                 </div>
-            </div>
 
 
             <div class="labelbox">
@@ -578,6 +683,43 @@ eyeIcons.forEach((eye) => {
     });
 
 });
+
+//dp
+
+const selectBtn = document.querySelector(".select-btn");
+        const options = document.querySelector(".options");
+        const selectedText = document.querySelector(".selected-text");
+        const role1 = document.querySelector("#role");
+        const arrow = document.querySelector(".arrow");
+
+        selectBtn.addEventListener("click", () => {
+            options.classList.toggle("active");
+            arrow.classList.toggle("rotate");
+        });
+
+        document.querySelectorAll(".options li").forEach((item) => {
+
+            item.addEventListener("click", () => {
+
+                selectedText.textContent = item.textContent.trim();
+                role1.value = item.dataset.value;
+
+                options.classList.remove("active");
+                arrow.classList.remove("rotate");
+
+            });
+
+        });
+
+        document.addEventListener("click", (e) => {
+
+            if (!e.target.closest(".custom-select")) {
+                options.classList.remove("active");
+                arrow.classList.remove("rotate");
+            }
+
+        });
+
     </script>
  
 </body>
