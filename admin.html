@@ -643,7 +643,7 @@
     <!-- ================= SIDEBAR (5 MENUS) ================= -->
     <aside class="sidebar">
         <div class="sidebar-logo">
-            <img src="./src/logo.webp" alt="company logo">
+            <img src="./src/logo.webp" alt="company logo" class="logimg">
             <span class="material-symbols-outlined adminclose">close</span>
         </div>
 
@@ -679,7 +679,7 @@
         <div class="topbar">
             <div class="topbarimgcontainer">
                 <span class="material-symbols-outlined topbarmenu">menu</span>
-                <img src="./src/logo.webp" alt="company logo">
+                <img src="./src/logo.webp" alt="company logo" class="logimg">
             </div>
             <h2 id="topbarTitle">Overview</h2>
             <div class="topbar-right">
@@ -687,7 +687,7 @@
                     <span class="material-symbols-outlined">search</span>
                     <input type="text" placeholder="Search shipments, IDs...">
                 </div>
-                <span class="material-symbols-outlined">notifications</span>
+                <span class="material-symbols-outlined errorpage">notifications</span>
                 <div class="topbar-avatar"><img
                         src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=100&q=80"
                         alt="Admin"></div>
@@ -727,7 +727,7 @@
                 <div class="panel">
                     <div class="panel-head">
                         <h3>Recent Shipments</h3>
-                        <button class="d-btn">View All <span
+                        <button class="d-btn errorpage">View All <span
                                 class="material-symbols-outlined">arrow_outward</span></button>
                     </div>
                     <table>
@@ -829,7 +829,7 @@
             <div class="panel">
                 <div class="panel-head">
                     <h3>All Shipments</h3>
-                    <button class="d-btn">New Shipment <span class="material-symbols-outlined">add</span></button>
+                    <button class="d-btn errorpage">New Shipment <span class="material-symbols-outlined">add</span></button>
                 </div>
                 <table>
                     <thead>
@@ -926,7 +926,7 @@
                         </div>
                     </div>
                     <div class="fleet-card">
-                        <img src="https://images.unsplash.com/photo-1601000938259-9fc7877428fc?auto=format&fit=crop&w=500&q=80"
+                        <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=500&q=80"
                             alt="Cargo ship">
                         <div class="fleet-card-body">
                             <h4>Vessel Pacific Star</h4>
@@ -1116,7 +1116,7 @@
             <div class="panel">
                 <div class="panel-head">
                     <h3>Customer Directory</h3>
-                    <button class="d-btn">Add Customer <span class="material-symbols-outlined">add</span></button>
+                    <button class="d-btn errorpage">Add Customer <span class="material-symbols-outlined">add</span></button>
                 </div>
                 <table>
                     <thead>
@@ -1198,7 +1198,22 @@
             username.textContent = email.split("@")[0];
         }
 
+        // errorpage
+         let errorpage = document.querySelectorAll(".errorpage")
+        errorpage.forEach((error) => {
+            error.addEventListener("click", () => {
+                window.location.href = "404.html";
+            })
+        })
 
+        // logimg
+
+               let logimg = document.querySelectorAll(".logimg")
+        logimg.forEach((img) => {
+            img.addEventListener("click", () => {
+                window.location.href = "admin.html";
+            })
+        })
 
 
         const titles = {

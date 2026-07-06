@@ -72,3 +72,12 @@
             alert("subscribe successfully!")
             footersubscribe.value=""
         })
+
+        //logo
+
+        const herologo=document.querySelectorAll(".company-logo")
+        herologo.forEach((clogo)=>{
+            clogo.addEventListener("click",()=>{
+                    window.location.href="index.html"
+            })
+        })
