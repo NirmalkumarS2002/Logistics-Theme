@@ -84,19 +84,19 @@
 
         //reveal js
 
-const observer=new IntersectionObserver((entries)=>{
-    entries.forEach((entry)=>{
-        if(entry.isIntersecting){
-            entry.target.classList.add("visible")
-        }
-    })
-},{
+// const observer=new IntersectionObserver((entries)=>{
+//     entries.forEach((entry)=>{
+//         if(entry.isIntersecting){
+//             entry.target.classList.add("visible")
+//         }
+//     })
+// },{
 
-    root:null,
-    rootMargin:"0px",
-    threshold:0.2
-})
+//     root:null,
+//     rootMargin:"0px",
+//     threshold:0.2
+// })
 
-const revels=document.querySelectorAll(".reveal, .reveal-right, .reveal-left").forEach((el)=>{
-    observer.observe(el)
-})
+// const revels=document.querySelectorAll(".reveal, .reveal-right, .reveal-left").forEach((el)=>{
+//     observer.observe(el)
+// })
