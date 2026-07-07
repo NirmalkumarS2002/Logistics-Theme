@@ -278,6 +278,12 @@
     }
 
     @media (max-width:1300px) {
+            .nav-no{
+                display: none;
+            }
+    }
+
+    @media (max-width:1100px) {
 
 
         .company-logo {
@@ -1298,6 +1304,62 @@
     .quote-form textarea { resize: none; height: 90px; }
     @media (max-width: 900px) { .quote-section { grid-template-columns: 1fr; } .quote-visual{min-height:260px;} .quote-form{padding:40px 25px;} }
 
+
+    
+    /*reveal animation*/
+
+    .reveal,
+    .reveal-left,
+    .reveal-right {
+        opacity: 0;
+        transition: all .8s ease;
+    }
+
+    .reveal {
+        transform: translateY(40px);
+    }
+
+    .reveal-left {
+        transform: translateX(-60px);
+    }
+
+    .reveal-right {
+        transform: translateX(60px);
+    }
+
+    .delay-1 {
+        transition-delay: .2s;
+    }
+
+    .delay-2 {
+        transition-delay: .4s;
+    }
+
+    .delay-3 {
+        transition-delay: .6s;
+    }
+
+    .delay-4 {
+        transition-delay: .8s;
+    }
+
+    .delay-5{
+        transition: 1.2s;
+    }
+
+    .reveal.visible,
+    .reveal-left.visible,
+    .reveal-right.visible {
+        opacity: 1;
+        transform: translate(0px, 0px);
+    }
+    
+            ::-webkit-scrollbar{
+    display: none;
+}
+
+
+
 </style>
 
 <body>
@@ -1425,15 +1487,15 @@
 
     </section>
 
-    <section class="hero-section">
+    <section class="hero-section reveal">
 
 
         <div class="hero-text">
-            <h1>Proper Logistic is success for your company</h1>
-            <p>We deliver seamless logistics and supply chain solutions with speed, precision, and complete
+            <h1 class="reveal delay-1">Proper Logistic is success for your company</h1>
+            <p class="reveal delay-2">We deliver seamless logistics and supply chain solutions with speed, precision, and complete
                 reliability.
             </p>
-            <button class="page-btn errorpage">Explore More <span class="material-symbols-outlined">arrow_outward</span>
+            <button class="page-btn errorpage reveal delay-3">Explore More <span class="material-symbols-outlined">arrow_outward</span>
             </button>
         </div>
         <div class="hero-side-btn">
@@ -1448,7 +1510,7 @@
     </section>
 
         <!-- ============ 1. SERVICES ============ -->
-<section class="section-wrap services-section">
+<section class="section-wrap services-section reveal">
     <div class="services-head">
         <div>
             <span class="eyebrow">What We Offer</span>
@@ -1457,23 +1519,23 @@
         <p>From first pickup to final delivery, Stackly moves freight by air, sea and land with the same level of care and visibility at every step.</p>
     </div>
 
-    <div class="services-grid">
+    <div class="services-grid reveal delay-1">
         <div class="service-card" style="background-image:url('./src/1.webp')">
             <span class="material-symbols-outlined">flight</span>
             <h3>Air Freight</h3>
             <p>Time-critical shipments moved across continents in hours, not weeks.</p>
         </div>
-        <div class="service-card" style="background-image:url('./src/2.webp')">
+        <div class="service-card reveal delay-2" style="background-image:url('./src/2.webp')">
             <span class="material-symbols-outlined">directions_boat</span>
             <h3>Sea Freight</h3>
             <p>Full and part container loads with reliable port-to-port scheduling.</p>
         </div>
-        <div class="service-card" style="background-image:url('./src/4.webp')">
+        <div class="service-card reveal delay-3" style="background-image:url('./src/4.webp')">
             <span class="material-symbols-outlined">local_shipping</span>
             <h3>Land Transport</h3>
             <p>Nationwide trucking network for pallet, groupage and full-load freight.</p>
         </div>
-        <div class="service-card" style="background-image:url('./src/3.webp')">
+        <div class="service-card reveal delay-4" style="background-image:url('./src/3.webp')">
             <span class="material-symbols-outlined">warehouse</span>
             <h3>Warehousing</h3>
             <p>Secure storage and fulfilment hubs positioned close to your customers.</p>
@@ -1482,14 +1544,14 @@
 </section>
 
 <!-- ============ 2. WHY CHOOSE US / STATS ============ -->
-<section class="section-wrap stats-section">
-    <div class="stats-left">
+<section class="section-wrap stats-section reveal">
+    <div class="stats-left reveal-left">
         <span class="eyebrow">Why Stackly</span>
         <h2 class="sec-heading">A logistics partner your <b>supply chain</b> can rely on</h2>
         <p>We combine a wide carrier network, real-time tracking and a dedicated operations team to keep every shipment moving on schedule.</p>
         <a href="404.html" class="sec-btn on-dark">Get in Touch <span class="material-symbols-outlined">arrow_outward</span></a>
     </div>
-    <div class="stats-grid">
+    <div class="stats-grid reveal-right">
         <div class="stat-box"><h2>18+</h2><p>Years in the logistics industry</p></div>
         <div class="stat-box"><h2>120K</h2><p>Shipments delivered on time</p></div>
         <div class="stat-box"><h2>45</h2><p>Countries covered by our network</p></div>
@@ -1498,25 +1560,25 @@
 </section>
 
 <!-- ============ 3. HOW IT WORKS ============ -->
-<section class="section-wrap process-section">
+<section class="section-wrap process-section reveal">
     <h2 class="sec-heading">How your shipment moves with <b>Stackly</b></h2>
     <div class="process-grid">
-        <div class="process-step">
+        <div class="process-step reveal delay-1">
             <span class="num">01</span>
             <h3>Request a Quote</h3>
             <p>Share your shipment details and we'll put together the best route and rate.</p>
         </div>
-        <div class="process-step">
+        <div class="process-step reveal delay-2">
             <span class="num">02</span>
             <h3>Pickup Scheduled</h3>
             <p>Our team collects your cargo from the origin point at a time that suits you.</p>
         </div>
-        <div class="process-step">
+        <div class="process-step reveal delay-3">
             <span class="num">03</span>
             <h3>In Transit</h3>
             <p>Track your shipment in real time as it moves by air, sea or road.</p>
         </div>
-        <div class="process-step">
+        <div class="process-step reveal delay-4">
             <span class="num">04</span>
             <h3>Final Delivery</h3>
             <p>Cargo arrives at its destination, confirmed and signed for.</p>
@@ -1525,12 +1587,12 @@
 </section>
 
 <!-- ============ 4. GLOBAL NETWORK ============ -->
-<section class="section-wrap network-section">
-    <div>
+<section class="section-wrap network-section reveal">
+    <div class="reveal-right">
         <span class="eyebrow">Global Reach</span>
         <h2 class="sec-heading">A network that spans <b>five continents</b></h2>
         <p style="margin-top:16px;font-size:14px;color:#666;max-width:420px;line-height:1.7;">Our partner ports, warehouses and carriers let us route freight through the fastest lane available, wherever your customer is.</p>
-        <div class="network-list">
+        <div class="network-list reveal-left">
             <div><span class="material-symbols-outlined">location_on</span>America</div>
             <div><span class="material-symbols-outlined">location_on</span> Europe</div>
             <div><span class="material-symbols-outlined">location_on</span> Japan</div>
@@ -1543,7 +1605,7 @@
 </section>
 
 <!-- ============ 5. OUR FLEET (gallery) ============ -->
-<section class="section-wrap fleet-section">
+<section class="section-wrap fleet-section reveal">
     <h2 class="sec-heading">Our fleet, ready for <b>any cargo</b></h2>
     <div class="fleet-grid">
         <div class="fleet-item" style="background-image:url('./src/1.webp')">
@@ -1565,9 +1627,9 @@
 </section>
 
 <!-- ============ 6. TESTIMONIALS ============ -->
-<section class="testimonial-section">
+<section class="testimonial-section reveal">
     <h2 class="sec-heading">What our clients <b>say about us</b></h2>
-    <div class="testimonial-grid">
+    <div class="testimonial-grid reveal delay-1">
         <div class="testimonial-card">
             <span class="material-symbols-outlined">format_quote</span>
             <p>Stackly has consistently kept our imports on schedule. Their tracking updates make planning so much easier.</p>
@@ -1576,7 +1638,7 @@
                 <div><h4>Ramesh Iyer</h4><span>Operations Head, Vantra Retail</span></div>
             </div>
         </div>
-        <div class="testimonial-card">
+        <div class="testimonial-card reveal delay-2">
             <span class="material-symbols-outlined">format_quote</span>
             <p>Switching our sea freight to Stackly cut our transit delays by half. The support team is genuinely responsive.</p>
             <div class="testimonial-person">
@@ -1584,7 +1646,7 @@
                 <div><h4>Anjali Menon</h4><span>Supply Chain Lead, Ferro Parts</span></div>
             </div>
         </div>
-        <div class="testimonial-card">
+        <div class="testimonial-card reveal delay-3">
             <span class="material-symbols-outlined">format_quote</span>
             <p>Reliable pickups, clear documentation and fair pricing — exactly what we needed for our export business.</p>
             <div class="testimonial-person">
@@ -1596,26 +1658,26 @@
 </section>
 
 <!-- ============ 7. INDUSTRIES WE SERVE ============ -->
-<section class="section-wrap industries-section">
+<section class="section-wrap industries-section reveal">
     <div>
         <span class="eyebrow">Industries</span>
         <h2 class="sec-heading">Trusted across <b>every sector</b></h2>
     </div>
     <div class="industries-grid">
-        <div class="industry-card"><span class="material-symbols-outlined">checkroom</span><h4>Retail & Apparel</h4></div>
-        <div class="industry-card"><span class="material-symbols-outlined">directions_car</span><h4>Automotive</h4></div>
-        <div class="industry-card"><span class="material-symbols-outlined">medication</span><h4>Pharmaceuticals</h4></div>
-        <div class="industry-card"><span class="material-symbols-outlined">memory</span><h4>Electronics</h4></div>
-        <div class="industry-card"><span class="material-symbols-outlined">agriculture</span><h4>Agriculture</h4></div>
+        <div class="industry-card reveal-left"><span class="material-symbols-outlined">checkroom</span><h4>Retail & Apparel</h4></div>
+        <div class="industry-card reveal-left"><span class="material-symbols-outlined">directions_car</span><h4>Automotive</h4></div>
+        <div class="industry-card reveal"><span class="material-symbols-outlined">medication</span><h4>Pharmaceuticals</h4></div>
+        <div class="industry-card reveal-right"><span class="material-symbols-outlined">memory</span><h4>Electronics</h4></div>
+        <div class="industry-card reveal-right"><span class="material-symbols-outlined">agriculture</span><h4>Agriculture</h4></div>
     </div>
 </section>
 
 <!-- ============ 8. GET A FREE QUOTE / CTA ============ -->
-<section class="quote-section">
-    <div class="quote-visual">
+<section class="quote-section reveal">
+    <div class="quote-visual reveal-left">
         <h3>Ready to ship? Let's get your cargo moving today.</h3>
     </div>
-    <div class="quote-form">
+    <div class="quote-form reveal-right">
         <span class="eyebrow">Get A Free Quote</span>
         <h2 class="sec-heading">Tell us about your shipment</h2>
  <form id="quoteForm">
@@ -1634,21 +1696,21 @@
 
     <footer class="footer">
 
-        <div class="footer-topbox-container">
-            <div class="footer-topbox fbox1">
+        <div class="footer-topbox-container reveal">
+            <div class="footer-topbox fbox1 reveal-left">
                 <h2>Special service for our Customers</h2>
                 <p>Pacific hake false trevelly queen Parrotfish black prickleback moss</p>
                 <a href="404.html">Discover<span class="material-symbols-outlined">arrow_outward</span></a>
             </div>
 
-            <div class="footer-topbox fbox2">
+            <div class="footer-topbox fbox2 reveal-right">
                 <h2>Logistic for different ways in USA</h2>
                 <p>Pacific hake false trevelly queen Parrotfish black prickleback moss</p>
                 <a href="404.html">Discover<span class="material-symbols-outlined">arrow_outward</span></a>
             </div>
         </div>
 
-        <div class="footer-contect">
+        <div class="footer-contect reveal">
             <div>
                 <h1>Have Any Questions?</h1>
                 <h2>Call us <span> +91 12345 67890</span></h2>
@@ -1662,7 +1724,7 @@
         <div class="footer-main-content">
 
             <div class="footer-body">
-                <div class="footer1">
+                <div class="footer1 reveal delay-1">
                     <a href="index.html"> <img src="./src/logo.webp" alt="Company Logo" class="company-logo"></a>
                     <p>Fast, secure, and dependable logistics services tailored
                         to your business needs.Delivering excellence from pickup
@@ -1683,7 +1745,7 @@
 
                 </div>
 
-                <div class="footer2">
+                <div class="footer2 reveal delay-2">
                     <h2>Contacts</h2>
                     <div>
                         <a href="404.html">USA, New York</a>
@@ -1693,7 +1755,7 @@
                     </div>
                 </div>
 
-                <div class="footer2">
+                <div class="footer2 reveal delay-3">
                     <h2>Company</h2>
                     <div>
                         <a href="index.html">Home</a>
@@ -1704,7 +1766,7 @@
                     </div>
                 </div>
 
-                <div class="footer2">
+                <div class="footer2 reveal delay-4">
                     <h2>Services</h2>
                     <div>
                         <a href="404.html">Air Freight</a>

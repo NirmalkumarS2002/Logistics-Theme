@@ -278,7 +278,13 @@
         color: white;
     }
 
-    @media (max-width:1300px) {
+       @media (max-width:1300px) {
+            .nav-no{
+                display: none;
+            }
+    }
+
+    @media (max-width:1100px) {
 
 
         .company-logo {
@@ -1344,6 +1350,59 @@
             min-height: 380px;
         }
     }
+
+    
+    /*reveal animation*/
+
+    .reveal,
+    .reveal-left,
+    .reveal-right {
+        opacity: 0;
+        transition: all .8s ease;
+    }
+
+    .reveal {
+        transform: translateY(40px);
+    }
+
+    .reveal-left {
+        transform: translateX(-60px);
+    }
+
+    .reveal-right {
+        transform: translateX(60px);
+    }
+
+    .delay-1 {
+        transition-delay: .2s;
+    }
+
+    .delay-2 {
+        transition-delay: .4s;
+    }
+
+    .delay-3 {
+        transition-delay: .6s;
+    }
+
+    .delay-4 {
+        transition-delay: .8s;
+    }
+
+    .delay-5{
+        transition: 1.2s;
+    }
+
+    .reveal.visible,
+    .reveal-left.visible,
+    .reveal-right.visible {
+        opacity: 1;
+        transform: translate(0px, 0px);
+    }
+
+                ::-webkit-scrollbar{
+    display: none;
+}
 </style>
 
 <body>
@@ -1473,7 +1532,7 @@
 
     <!-- about us -->
 
-    <section class="a-wrap contact-hero">
+    <section class="a-wrap contact-hero reveal">
         <div class="contact-hero-content">
             <span class="a-eyebrow">About Us</span>
             <h2 class="a-heading">Driving <b>Smarter Logistics</b> Across Every Mile</h2>
@@ -1489,8 +1548,8 @@
     </section>
 
     <!-- ============ 1. ABOUT INTRO / STORY ============ -->
-    <section class="a-wrap about-hero">
-            <div class="about-hero-img">
+    <section class="a-wrap about-hero reveal">
+            <div class="about-hero-img reveal-left">
                 <img src='./src/11.webp'
                     alt="Stackly warehouse operations">
                 <div class="about-hero-badge">
@@ -1498,7 +1557,7 @@
                     <p>Years moving freight worldwide</p>
                 </div>
             </div>
-        <div class="about-hero-text">
+        <div class="about-hero-text reveal-right">
             <span class="a-eyebrow">About Stackly</span>
             <h2 class="a-heading">Built on <b>reliability</b>, driven by <b>precision</b></h2>
             <p>Stackly started as a small freight forwarder with a single truck and a simple promise: move cargo the
@@ -1510,21 +1569,21 @@
     </section>
 
     <!-- ============ 2. MISSION & VISION ============ -->
-    <section class="a-wrap mv-section">
-        <div class="mv-card">
+    <section class="a-wrap mv-section reveal">
+        <div class="mv-card reveal delay-1">
             <span class="material-symbols-outlined">flag</span>
             <h3>Our Mission</h3>
             <p>To move every shipment with speed, transparency and care, so our clients can focus on growing their
                 business instead of worrying about logistics.</p>
         </div>
-        <div class="mv-card">
+        <div class="mv-card reveal delay-2">
             <span class="material-symbols-outlined">visibility</span>
             <h3>Our Vision</h3>
             <p>To be the most trusted logistics partner in every market we serve, known for dependable delivery and
                 honest communication at every step.</p>
         </div>
 
-     <div class="mv-card">
+     <div class="mv-card reveal delay-3">
 
     <span class="material-symbols-outlined">travel_explore</span>
     <h3>Future Vision</h3>
@@ -1536,25 +1595,25 @@
     </section>
 
     <!-- ============ 3. OUR JOURNEY / TIMELINE ============ -->
-    <section class="a-wrap journey-section">
+    <section class="a-wrap journey-section reveal">
         <h2 class="a-heading">The road that brought us <b>here</b></h2>
         <div class="journey-track">
-            <div class="journey-step">
+            <div class="journey-step reveal delay-1">
                 <span class="dot">08</span>
                 <h4>Founded in New York</h4>
                 <p>Started with one truck and a handful of local delivery routes.</p>
             </div>
-            <div class="journey-step">
+            <div class="journey-step reveal delay-2">
                 <span class="dot">13</span>
                 <h4>Opened Sea Freight</h4>
                 <p>Added container shipping and our first overseas partnerships.</p>
             </div>
-            <div class="journey-step">
+            <div class="journey-step reveal delay-3">
                 <span class="dot">18</span>
                 <h4>Air Cargo Launch</h4>
                 <p>Introduced air freight for time-critical shipments worldwide.</p>
             </div>
-            <div class="journey-step">
+            <div class="journey-step reveal delay-4">
                 <span class="dot">26</span>
                 <h4>45-Country Network</h4>
                 <p>Now operating warehouses and routes across five continents.</p>
@@ -1563,32 +1622,32 @@
     </section>
 
     <!-- ============ 4. LEADERSHIP TEAM ============ -->
-    <section class="a-wrap team-section">
+    <section class="a-wrap team-section reveal">
         <span class="a-eyebrow">Leadership</span>
         <h2 class="a-heading">The people steering <b>Stackly</b> forward</h2>
         <div class="team-grid">
-            <div class="team-card">
+            <div class="team-card reveal delay-1">
                 <img src='./src/p1.webp'
                     alt="Team member">
                 <div class="team-info">
                     <h4>Michael Carter</h4><span>Chief Executive Officer</span>
                 </div>
             </div>
-            <div class="team-card">
+            <div class="team-card reveal delay-2">
                 <img src='./src/p2.webp'
                     alt="Team member">
                 <div class="team-info">
                     <h4>Sarah Whitman</h4><span>Chief Operations Officer</span>
                 </div>
             </div>
-            <div class="team-card">
+            <div class="team-card reveal delay-3">
                 <img src='./src/p3.webp'
                     alt="Team member">
                 <div class="team-info">
                     <h4>Priya Nair</h4><span>Head of Sea Freight</span>
                 </div>
             </div>
-            <div class="team-card">
+            <div class="team-card reveal delay-4">
                 <img src='./src/person3.webp'
                     alt="Team member">
                 <div class="team-info">
@@ -1599,7 +1658,7 @@
     </section>
 
     <!-- ============ 5. WHY CHOOSE US / CTA ============ -->
-    <section class="why-section">
+    <section class="why-section reveal">
         <div class="why-content">
             <span class="a-eyebrow">Why Choose Us</span>
             <h2 class="a-heading">Logistics handled with <b>full accountability</b></h2>
@@ -1615,23 +1674,23 @@
                     class="material-symbols-outlined">arrow_outward</span></a>
         </div>
     </section>
-    <footer class="footer">
+    <footer class="footer reveal">
 
-        <div class="footer-topbox-container">
-            <div class="footer-topbox fbox1">
+        <div class="footer-topbox-container reveal">
+            <div class="footer-topbox fbox1 reveal-left">
                 <h2>Special service for our Customers</h2>
                 <p>Pacific hake false trevelly queen Parrotfish black prickleback moss</p>
                 <a href="404.html">Discover<span class="material-symbols-outlined">arrow_outward</span></a>
             </div>
 
-            <div class="footer-topbox fbox2">
+            <div class="footer-topbox fbox2 reveal-right">
                 <h2>Logistic for different ways in USA</h2>
                 <p>Pacific hake false trevelly queen Parrotfish black prickleback moss</p>
                 <a href="404.html">Discover<span class="material-symbols-outlined">arrow_outward</span></a>
             </div>
         </div>
 
-        <div class="footer-contect">
+        <div class="footer-contect reveal">
             <div>
                 <h1>Have Any Questions?</h1>
                 <h2>Call us <span> +91 12345 67890</span></h2>
@@ -1642,10 +1701,10 @@
 
         </div>
 
-        <div class="footer-main-content">
+        <div class="footer-main-content reveal">
 
             <div class="footer-body">
-                <div class="footer1">
+                <div class="footer1 reveal delay-1">
                     <a href="index.html"> <img src="./src/logo.webp" alt="Company Logo" class="company-logo"></a>
                     <p>Fast, secure, and dependable logistics services tailored
                         to your business needs.Delivering excellence from pickup
@@ -1666,7 +1725,7 @@
 
                 </div>
 
-                <div class="footer2">
+                <div class="footer2 reveal delay-2">
                     <h2>Contacts</h2>
                     <div>
                         <a href="404.html">USA, New York</a>
@@ -1676,7 +1735,7 @@
                     </div>
                 </div>
 
-                <div class="footer2">
+                <div class="footer2 reveal delay-3">
                     <h2>Company</h2>
                      <div>
                         <a href="index.html">Home</a>
@@ -1687,7 +1746,7 @@
                     </div>
                 </div>
 
-                <div class="footer2">
+                <div class="footer2 reveal delay-4">
                     <h2>Services</h2>
                     <div>
                         <a href="404.html">Air Freight</a>
